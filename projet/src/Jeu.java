@@ -95,7 +95,13 @@ public class Jeu {
             int i = getPremierJoueur();
             while (!centre.isEmpty() || !fabriques_vides()) {
                 System.out.println("Tour du joueur "+joueurs[i].getNom());
+                for (Fabrique fabrique : fabriques) {
+                    System.out.println(fabrique);
+                }
+                System.out.println(centre);
+                System.out.println(joueurs[i]);
                 joue(i%joueurs.length);
+                System.out.println(joueurs[i]);
                 i++;
             }
             //fin manche

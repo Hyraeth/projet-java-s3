@@ -28,6 +28,10 @@ public class Joueur {
         }
     }
 
+    public String toString() {
+        return score +"\n"+plateau.toString();
+    }
+
     public void ajouterTuilePlancher(ZoneCommune zc, Tuile t) {
         int n = zc.count(t);
         plateau.addTuilePlancher(n, t);
