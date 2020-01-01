@@ -95,8 +95,8 @@ public class Jeu {
             int i = getPremierJoueur();
             while (!centre.isEmpty() || !fabriques_vides()) {
                 System.out.println("Tour du joueur "+joueurs[i].getNom());
-                for (Fabrique fabrique : fabriques) {
-                    System.out.println(fabrique);
+                for (int j = 0; j < fabriques.length; j++) {
+                    System.out.println("("+j+") "+fabriques[j]);
                 }
                 System.out.println(centre);
                 System.out.println(joueurs[i]);
