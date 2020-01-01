@@ -51,6 +51,12 @@ public class Joueur {
     
     public void joue() {
         //Scanner
-        
+        System.out.println("Selectionnez votre action : (1) Prendre tuile d'une fabrique (2) Prendre tuile du centre.");
+        //Si 1
+            System.out.println("Quelle fabriques (0-qqchose)");
+            System.out.println("Quelle couleur?");
+            System.out.println("Où ajouter ces tuiles? (1) Lignes motifs (2) plancher");
+            //Si 1
+            
     }
 }

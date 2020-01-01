@@ -94,8 +94,8 @@ public class Jeu {
             for (Fabrique fabrique : fabriques) {
                 fabrique.remplir(sac);
             }
+            int i = getPremierJoueur();
             while (centre.isEmpty() && fabriques_vides()) {
-                int i = getPremierJoueur();
                 joueurs[i%nbplayer].joue();
                 i++;
             }
