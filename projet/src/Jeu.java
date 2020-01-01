@@ -180,7 +180,7 @@ public class Jeu {
             j = scan.nextLine();
             a.add(j);
         }
-        Jeu j = new Jeu(a, 0);
-        j.jouer();
+        Jeu jeu = new Jeu(a, 0);
+        jeu.jouer();
     }
 }
