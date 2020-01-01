@@ -1,6 +1,8 @@
 public class Joueur {
     private int score;
+    public int getScore() {return this.score;}
     private String nom;
+    public String getNom() {return this.nom;}
     private Plateau plateau;
 
     public Joueur (String n) {
