@@ -85,7 +85,7 @@ public class Jeu {
         for (int k = 0; k < fabriques.length; k++) {
             if(joueurs[k].getPlateau().getPlancher().getPlancher().contains(new PremierJoueur())) return k;
         } 
-        return 0;
+        return (int) (Math.random())*(this.joueurs.length-1);
     }
 
     public void play(int nbplayer, int option) {
