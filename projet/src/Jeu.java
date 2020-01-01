@@ -149,11 +149,20 @@ public class Jeu {
             }
         }
         if(zone.equals("f")) {
-            if(destination.equals("l")) joueurs[i].ajouterTuile(fabriques[fab], new Tuile(color), ligne);
-            else joueurs[i].ajouterTuilePlancher(fabriques[fab], new Tuile(color));
+            if(destination.equals("l")) {
+                if(joueurs[i].ajouterTuile(fabriques[fab], new Tuile(color), ligne)) fabriques[fab].mettreCentre(centre);
+            }
+            else {
+                joueurs[i].ajouterTuilePlancher(fabriques[fab], new Tuile(color));
+                fabriques[fab].mettreCentre(centre);
+            }
         } else {
-            if(destination.equals("l")) joueurs[i].ajouterTuile(centre, new Tuile(color), ligne);
-            else joueurs[i].ajouterTuilePlancher(fabriques[fab], new Tuile(color));
+            if(destination.equals("l")) {
+                joueurs[i].ajouterTuile(centre, new Tuile(color), ligne);
+            }
+            else {
+                joueurs[i].ajouterTuilePlancher(fabriques[fab], new Tuile(color));
+            }
         }
 
     }
