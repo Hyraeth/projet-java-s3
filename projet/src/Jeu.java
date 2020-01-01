@@ -168,7 +168,18 @@ public class Jeu {
     }
     public static void main(String[] args) {
         ArrayList<String> a = new ArrayList<>();
-        a.add("pipi"); a.add("popo"); a.add("pupu");
+        Scanner scan = new Scanner(System.in);
+        int nbjoueur = 0;
+        while (nbjoueur<2 || nbjoueur>4) {
+            System.out.println("nombre de joueur ? (entre 2 et 4)");
+            nbjoueur = scan.nextInt();
+        }
+        String j = "";
+        for (int i=0; i<nbjoueur; i++) {
+            System.out.println("joueur n°" + i+1);
+            j = scan.nextLine();
+            a.add(j);
+        }
         Jeu j = new Jeu(a, 0);
         j.jouer();
     }
