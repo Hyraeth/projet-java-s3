@@ -7,8 +7,9 @@ public class Jeu {
     private Fabrique[] fabriques;
     private Centre centre;
     private Joueur[] joueurs;
+    private int option;
     
-    public Jeu(ArrayList<String> noms) {
+    public Jeu(ArrayList<String> noms, int o) {
         this.sac = new Sac();
 
         this.defausse = new Defausse();
@@ -24,6 +25,7 @@ public class Jeu {
         for (int i = 0; i<joueurs.length; i++) {
             this.joueurs[i] = (new Joueur(noms.get(i)));
         }
+        option = o;
     }
 
     public boolean partieFinie() {
@@ -88,7 +90,7 @@ public class Jeu {
         return (int) (Math.random())*(this.joueurs.length-1);
     }
 
-    public void play(int nbplayer, int option) {
+    public void play(int option) {
         while(!partieFinie()) {
             if(sac.size() < fabriques.length * 4) sac.addAll();
             for (Fabrique fabrique : fabriques) {
@@ -96,7 +98,7 @@ public class Jeu {
             }
             int i = getPremierJoueur();
             while (centre.isEmpty() && fabriques_vides()) {
-                joueurs[i%nbplayer].joue();
+                joueurs[i%joueurs.length].joue();
                 i++;
             }
             //fin manche
