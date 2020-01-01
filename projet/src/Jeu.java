@@ -144,7 +144,7 @@ public class Jeu {
         if (destination.equals("l")) {  //Quelle ligne ?
             while (ligne<=0 || ligne>5) {
                 System.out.println("Quelle ligne choisissez vous ?");
-                System.out.println("Donnez un nombre entre 1 et 5");
+                System.out.println("Donnez un nombre entre 0 et 4");
                 ligne = sc.nextInt();
             }
         }
