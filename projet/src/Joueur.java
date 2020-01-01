@@ -37,7 +37,7 @@ public class Joueur {
     }
 
 	public void updateWall() {
-        
+        plateau.updateWall();
 	}
 
 	public void moveToDefausse() {

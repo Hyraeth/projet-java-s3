@@ -1,5 +1,6 @@
 public class LigneMotif {
     private Case[][] ligne_motif;
+    public Case[][] getLigne() { return ligne_motif;}
 
     public LigneMotif() {
         ligne_motif = new Case[5][];
@@ -30,24 +31,34 @@ public class LigneMotif {
         return true;
     }
 
-    public boolean ajoutable(int ligne, Tuile t) {
-        if(!isEmpty(ligne)) {
-            if(!ligne_motif[ligne][0].getTuile().equals(t)) return false;
-            return true;
+    public void add(int ligne, int nombre, Tuile t) {
+        int c = 0;
+        for (int i = 0; i < ligne_motif[ligne].length; i++) {
+            if(ligne_motif[ligne][i].isEmpty()) ligne_motif[ligne][i].addTuile(t);
+            c++;
+            if(c==nombre) break;
         }
-        return true;
     }
-    
-    public boolean add(int ligne, int nombre, Tuile t) {
-        if(ajoutable(ligne, t)) {
-            int c = 0;
-            for (int i = 0; i < ligne_motif[ligne].length; i++) {
-                if(ligne_motif[ligne][i].isEmpty()) ligne_motif[ligne][i].addTuile(t);
-                c++;
-                if(c==nombre) break;
+
+    public boolean[] lignesRemplies() {
+        boolean[] b = new boolean[5];
+        for (boolean c : b) {
+            c = true;
+        }
+        for (int j = 0; j < ligne_motif.length; j++) {
+            for (Case case1 : ligne_motif[j]) {
+                if(case1.isEmpty()) b[j] = false;
             }
-            return true;
-        } return false;
+        }
+        return b;
+    }
+
+    public void clear() {
+        for (Case[] cases : ligne_motif) {
+            for (Case case1 : cases) {
+                
+            }
+        }
     }
 
     public String toString() {
@@ -60,4 +71,8 @@ public class LigneMotif {
         }
         return s;
     }
+
+	public Tuile getColorLine(int i) {
+        return ligne_motif[i][0].getTuile();
+	}
 }
