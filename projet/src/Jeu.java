@@ -69,15 +69,7 @@ public class Jeu {
         tour(i);
         i = ((i+1)%this.joueurs.length);
 
-        //verification fabriques_vides
-        fabriques_vides = true;
-        for (Fabrique f : this.fabriques) {
-            if (!f.isEmpty()) {
-                fabriques_vides = false;
-            }
-        }
-
-        if (!(fabriques_vides && centre.isEmpty())){  //tant que fabriques et centre pas vides
+        if (!(fabriques_vides() && centre.isEmpty())){  //tant que fabriques et centre pas vides
             this.manche(i);
         }
     }
