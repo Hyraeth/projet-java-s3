@@ -20,4 +20,15 @@ public class Mur {
         }
         return s;
     }
+
+    public boolean ligneRemplie() {
+        for (Case[] cases : mur) {
+            boolean rempli = true;
+            for (Case case1 : cases) {
+                if(case1.isEmpty()) rempli = false;
+            }
+            if(rempli) return true;
+        }
+        return false;
+    }
 }
