@@ -88,6 +88,7 @@ public class Jeu {
 
     public void play() {
         while(!partieFinie()) {
+            System.out.println("test while partie fini");
             if(sac.size() < fabriques.length * 4) sac.addAll();
             for (Fabrique fabrique : fabriques) {
                 fabrique.remplir(sac);
