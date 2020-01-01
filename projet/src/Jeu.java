@@ -94,7 +94,7 @@ public class Jeu {
                 fabrique.remplir(sac);
             }
             int i = getPremierJoueur();
-            while (centre.isEmpty() && fabriques_vides()) {
+            while (!centre.isEmpty() || !fabriques_vides()) {
                 joue(i%joueurs.length);
                 i++;
             }
