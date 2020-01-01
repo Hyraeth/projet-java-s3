@@ -1,5 +1,6 @@
 public class Plateau {
     private Plancher plancher;
+    public Plancher getPlancher() { return plancher; }
     private LigneMotif ligne_motif;
     private Mur mur;
 

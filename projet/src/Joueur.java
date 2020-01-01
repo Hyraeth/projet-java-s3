@@ -11,8 +11,13 @@ public class Joueur {
 
     public void ajouterTuile(ZoneCommune zc, Tuile t, int ligne) {
         int n = zc.count(t);
-        if(plateau.addTuile(ligne, n, t))
+        if(zc instanceof Centre && !((Centre) zc).firstMoveDone()) {
+            plateau.getPlancher().add(1, new PremierJoueur());
+            zc.remove(new PremierJoueur());
+        }
+        if(plateau.addTuile(ligne, n, t)) {
             zc.remove(t);
+        }
         else
             System.out.println("Ajout impossible");
     }
