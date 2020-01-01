@@ -90,6 +90,11 @@ public class Jeu {
         return (int) (Math.random())*(this.joueurs.length-1);
     }
 
+    public void joue(int i) {
+        
+        joueurs[i].ajouterTuile(zone, t, ligne);
+    }
+
     public void play(int option) {
         while(!partieFinie()) {
             if(sac.size() < fabriques.length * 4) sac.addAll();
@@ -98,7 +103,7 @@ public class Jeu {
             }
             int i = getPremierJoueur();
             while (centre.isEmpty() && fabriques_vides()) {
-                joueurs[i%joueurs.length].joue();
+                joue(i%joueurs.length);
                 i++;
             }
             //fin manche
