@@ -25,9 +25,6 @@ public class Jeu {
             this.joueurs[i] = (new Joueur(noms.get(i)));
         }
     }
-<<<<<<< HEAD
-    
-=======
 
     //tant que il n'y a pas de lignes de faite (partie pas terminer)
     public void partie () {
@@ -82,5 +79,4 @@ public class Jeu {
     public void tour(int i) {
 
     }
->>>>>>> a90866ec5d72bf942ad9e1416e125643bced54c0
 }
