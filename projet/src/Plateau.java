@@ -52,7 +52,8 @@ public class Plateau {
 	}
 
 	public void moveToDefausse() {
-        
+        ligne_motif.moveToDefausse();
+        plancher.moveToDefausse();
 	}
 
 }

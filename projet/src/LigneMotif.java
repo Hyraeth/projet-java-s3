@@ -54,7 +54,7 @@ public class LigneMotif {
         return b;
     }
 
-    public void AddToDefausse() {
+    public void moveToDefausse() {
         for (int i = 0; i < ligne_motif.length; i++) {
             if(!isEmpty(i))  {
                 Defausse.ajouterTuile(size(i)-1, getColorLine(i));

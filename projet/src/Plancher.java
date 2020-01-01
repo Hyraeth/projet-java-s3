@@ -13,6 +13,11 @@ public class Plancher {
         return plancher.size();
     }
 
+    public void clear() {
+        minus = 0;
+        plancher.clear();
+    }
+
     public void refreshMinus() {
         int s = size();
         if(s <= 2) minus = 1;
@@ -33,5 +38,12 @@ public class Plancher {
             s += case1.toString()+";";
         }
         return s;
+    }
+
+    public void moveToDefausse() {
+        for (Tuile tuile : plancher) {
+            if(!(tuile instanceof PremierJoueur)) Defausse.ajouterTuile(tuile);
+        }
+        clear();
     }
 }
