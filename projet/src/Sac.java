@@ -6,6 +6,7 @@ public class Sac {
     public ArrayList<Tuile> getContenu() { return this.contenu; }
 
     public Sac () {
+        contenu = new ArrayList<>();
         for(int i = 0; i < 100; i++) {
             if(i<20) this.contenu.add(new Tuile("bleu"));
             else if(i>=20 && i<40) this.contenu.add(new Tuile("jaune"));
