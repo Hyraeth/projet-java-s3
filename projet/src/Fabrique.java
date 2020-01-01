@@ -1,6 +1,4 @@
-package Project;
-
-public class Fabrique {
+public class Fabrique implements ZoneCommune{
 
     private Case[] fabrique;
 
@@ -16,6 +14,12 @@ public class Fabrique {
             for (Case c : fabrique) {
                 c.addTuile(s.prendreTuile());
             }
+        }
+    }
+
+    public void remove(Tuile t) {
+        for (Case case1 : fabrique) {
+            if(case1.getTuile().equals(t)) case1.clear();
         }
     }
 
@@ -36,6 +40,14 @@ public class Fabrique {
         for (Case c : fabrique) {
             c.clear();
         }
+    }
+
+    public int count(Tuile t) {
+        int c = 0;
+        for (Case case1 : fabrique) {
+            if(case1.getTuile().equals(t)) c++;
+        }
+        return c;
     }
 
 }

@@ -1,5 +1,3 @@
-package Project;
-
 public class Tuile {
 
     private String color;
@@ -7,6 +5,11 @@ public class Tuile {
 
     public Tuile (String c) {
         this.color = c;
+    }
+
+    public boolean equals(Tuile t) {
+        if((t instanceof Tuile) && this.color.equals(t.color)) return true;
+        else return false;
     }
 
 } class PremierJoueur extends Tuile {

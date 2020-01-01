@@ -1,5 +1,3 @@
-package Project;
-
 public class Case {
 
     private Tuile tuile;
