@@ -47,4 +47,8 @@ public class Plateau {
         return ligne_motif.toString()+"\n"+plancher.toString()+"\n\n"+mur.toString();
     }
 
+	public void addTuilePlancher(int n, Tuile t) {
+        plancher.add(n, t);
+	}
+
 }

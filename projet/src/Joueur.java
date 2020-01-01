@@ -23,7 +23,7 @@ public class Joueur {
             return true;
         }
         else{
-            System.out.println("Ajout impossible");
+            plateau.addTuilePlancher(n, t);
             return false;
         }
     }
