@@ -4,6 +4,7 @@ public class Plateau {
     private LigneMotif ligne_motif;
     public LigneMotif getLigneMotif() { return ligne_motif; }
     private Mur mur;
+    public Mur getMur() { return this.mur; }
 
     public Plateau() {
         plancher = new Plancher();

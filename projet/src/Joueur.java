@@ -4,6 +4,7 @@ public class Joueur {
     private String nom;
     public String getNom() {return this.nom;}
     private Plateau plateau;
+    public Plateau getPlateau() { return this.plateau; }
 
     public Joueur (String n) {
         nom = n;

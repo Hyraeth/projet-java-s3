@@ -26,10 +26,17 @@ public class Jeu {
         }
     }
 
+    public boolean partieFinie() {
+        for (Joueur joueur : joueurs) {
+            if(joueur.getPlateau().getMur().ligneRemplie()) return true;
+        }
+        return false;
+    }
+
     //tant que il n'y a pas de lignes de faite (partie pas terminer)
     public void partie () {
         int i =(int) (Math.random())*(this.joueurs.length-1);
-        while (true/*partie pas fini*/) {
+        while (!partieFinie()) {
             this.manche(i);
             //FIXED ME : i= premier joueur
         }
