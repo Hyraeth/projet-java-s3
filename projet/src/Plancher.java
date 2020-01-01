@@ -16,7 +16,7 @@ public class Plancher {
     public void refreshMinus() {
         int s = size();
         if(s <= 2) minus = 1;
-        if(s > 5) minus = 3;
+        else if(s > 5) minus = 3;
         else minus = 2;
     }
 
