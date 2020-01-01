@@ -83,8 +83,9 @@ public class Jeu {
 
     public int getPremierJoueur() {
         for (int k = 0; k < fabriques.length; k++) {
-            if(joueurs[k]getPlateau().getPlancher().getPlancher().contains(new PremierJoueur())) return k;
+            if(joueurs[k].getPlateau().getPlancher().getPlancher().contains(new PremierJoueur())) return k;
         } 
+        return 0;
     }
 
     public void play(int nbplayer, int option) {

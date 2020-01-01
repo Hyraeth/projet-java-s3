@@ -50,6 +50,7 @@ public class Joueur {
     }
     
     public void joue() {
-        Scanne
+        //Scanner
+        
     }
 }
