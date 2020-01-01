@@ -51,4 +51,8 @@ public class Plateau {
         plancher.add(n, t);
 	}
 
+	public void moveToDefausse() {
+        
+	}
+
 }

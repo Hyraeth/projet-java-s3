@@ -46,5 +46,6 @@ public class Joueur {
 	}
 
 	public void moveToDefausse() {
+        plateau.moveToDefausse();
 	}
 }

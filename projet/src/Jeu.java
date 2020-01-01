@@ -100,6 +100,6 @@ public class Jeu {
 
     //tour du joueur i
     public void tour(int i) {
-
+        
     }
 }

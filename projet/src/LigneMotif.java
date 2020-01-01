@@ -31,6 +31,7 @@ public class LigneMotif {
         return true;
     }
 
+
     public void add(int ligne, int nombre, Tuile t) {
         int c = 0;
         for (int i = 0; i < ligne_motif[ligne].length; i++) {
@@ -53,10 +54,29 @@ public class LigneMotif {
         return b;
     }
 
+    public void AddToDefausse() {
+        for (int i = 0; i < ligne_motif.length; i++) {
+            if(!isEmpty(i))  {
+                Defausse.ajouterTuile(size(i)-1, getColorLine(i));
+                clearLine(i);
+            }
+        }
+    }
+
     public void clear() {
         for (Case[] cases : ligne_motif) {
             for (Case case1 : cases) {
-                
+                case1.clear();
+            }
+        }
+    }
+
+    public void clearLine(int ligne) {
+        for (int i = 0; i < ligne_motif.length; i++) {
+            if(i == ligne) {
+                for (Case cases : ligne_motif[i]) {
+                    cases.clear();
+                }
             }
         }
     }
