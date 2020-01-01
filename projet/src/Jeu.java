@@ -124,7 +124,8 @@ public class Jeu {
         String color = "";  //Quelle couleur de tuile ?
         while (!(color.equals("bleu") || color.equals("jaune") || color.equals("rouge") || color.equals("noir") || color.equals("blanc"))) {
             System.out.println("Quelle couleur de tuile choisissez vous ?");
-            System.out.println(fabriques[fab]);
+            if(zone.equals("f")) System.out.println(fabriques[fab]);
+            else System.out.println(centre);
             color = sc.nextLine();
         }
         String destination = "";  //Vers où ?
