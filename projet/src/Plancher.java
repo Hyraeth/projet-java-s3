@@ -1,21 +1,16 @@
+import java.util.ArrayList;
+
 public class Plancher {
     private int minus;
-    private Case[] plancher;
+    private ArrayList<Tuile> plancher;
 
     public Plancher() {
         minus = 0;
-        plancher = new Case[7];
-        for (int i = 0; i < plancher.length; i++) {
-            plancher[i] = new Case();
-        }
+        plancher = new ArrayList<>();
     }
 
     public int size() {
-        int n = 7;
-        for (Case c : plancher) {
-           if(c.isEmpty()) n--; 
-        }
-        return n;
+        return plancher.size();
     }
 
     public void refreshMinus() {
@@ -26,25 +21,15 @@ public class Plancher {
     }
 
     public void add(int n, Tuile t) {
-        if(n>7-size()) {
-            for (Case c : plancher) {
-                if(c.isEmpty()) c.addTuile(t);
-            }
-            Defausse.ajouterTuile(n-7, t);
-        } else {
-            int i =0;
-            for (Case c : plancher) {
-                if(i==n) break;
-                if(c.isEmpty()) c.addTuile(t);
-                i++;
-            }  
+        for (int i = 0; i < n; i++) {
+            plancher.add(t);
         }
         refreshMinus();
     }
 
     public String toString() {
         String s = "";
-        for (Case case1 : plancher) {
+        for (Tuile case1 : plancher) {
             s += case1.toString()+";";
         }
         return s;
