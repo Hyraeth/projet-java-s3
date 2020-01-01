@@ -4,7 +4,7 @@ public class Defausse {
 
     private static ArrayList<Tuile> contenu;
 
-    public ArrayList<Tuile> getContenu() {
+    public static ArrayList<Tuile> getContenu() {
         return Defausse.contenu;
     }
 

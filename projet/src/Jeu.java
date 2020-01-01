@@ -34,7 +34,7 @@ public class Jeu {
     }
 
     //tant que il n'y a pas de lignes de faite (partie pas terminer)
-    public void partie () {
+    public void jouer () {
         int i =(int) (Math.random())*(this.joueurs.length-1);
         while (!partieFinie()) {
             this.manche(i);
@@ -79,6 +79,30 @@ public class Jeu {
 
         if (!(fabriques_vides && centre.isEmpty())){  //tant que fabriques et centre pas vides
             this.manche(i);
+        }
+    }
+
+    public boolean fabriques_vides() {
+        for (Fabrique fabrique : fabriques) {
+            if(!fabrique.isEmpty()) return false;
+        }
+        return true;
+    }
+
+    public void play(int nbplayer, int option) {
+        while(!partieFinie()) {
+            if(sac.size() < fabriques.length * 4) sac.addAll();
+            for (Fabrique fabrique : fabriques) {
+                fabrique.remplir(sac);
+            }
+            while (centre.isEmpty() && fabriques_vides()) {
+                //tour joueurs
+            }
+            //fin manche
+            for (Joueur j : joueurs) {
+                j.updateWall(); //Deplacer les tuiles des lignes motifs remplie dans le mur et mettre a jour le score
+                j.moveToDefausse(); //Deplacer les tuiles des lignes motifs dans la défausse
+            }
         }
     }
 

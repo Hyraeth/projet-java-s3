@@ -36,7 +36,7 @@ public class Sac {
         return t;
     }
 
-    public int nbTuiles() {
+    public int size() {
         return this.contenu.size();
     }
 
@@ -45,6 +45,10 @@ public class Sac {
             this.contenu.add(t);
             Collections.shuffle(this.contenu);
         }
+    }
+
+    public void addAll() {
+        this.contenu.addAll(Defausse.getContenu());
     }
 
 }

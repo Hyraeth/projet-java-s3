@@ -35,4 +35,11 @@ public class Joueur {
         System.out.println(j.ajouterTuile(c, new Tuile("rouge"), 4));
         System.out.println(j.plateau);
     }
+
+	public void updateWall() {
+        
+	}
+
+	public void moveToDefausse() {
+	}
 }
