@@ -37,11 +37,7 @@ public class Jeu {
 
     //tant que il n'y a pas de lignes de faite (partie pas terminer)
     public void jouer () {
-        int i =(int) (Math.random())*(this.joueurs.length-1);
-        while (!partieFinie()) {
-            this.manche(i);
-            //FIXED ME : i= premier joueur
-        }
+        play();
         System.out.println("PARTIE TERMINEE");
         LinkedList<Joueur> gagnants = new LinkedList<>();  //liste de(s) gagnant(s)
         gagnants.add(joueurs[0]);
@@ -66,7 +62,7 @@ public class Jeu {
     }
 
     //tant que il reste des tuiles en jeu (manche pas terminer)
-    public void manche(int i) {
+    /*public void manche(int i) {
         boolean fabriques_vides = false;
         tour(i);
         i = ((i+1)%this.joueurs.length);
@@ -74,7 +70,7 @@ public class Jeu {
         if (!(fabriques_vides() && centre.isEmpty())){  //tant que fabriques et centre pas vides
             this.manche(i);
         }
-    }
+    }*/
 
     public boolean fabriques_vides() {
         for (Fabrique fabrique : fabriques) {
@@ -90,12 +86,7 @@ public class Jeu {
         return (int) (Math.random())*(this.joueurs.length-1);
     }
 
-    public void joue(int i) {
-        
-        joueurs[i].ajouterTuile(zone, t, ligne);
-    }
-
-    public void play(int option) {
+    public void play() {
         while(!partieFinie()) {
             if(sac.size() < fabriques.length * 4) sac.addAll();
             for (Fabrique fabrique : fabriques) {
@@ -112,5 +103,45 @@ public class Jeu {
                 j.moveToDefausse(); //Deplacer les tuiles des lignes motifs dans la défausse
             }
         }
+    }
+
+    public void joue(int i) {
+        Scanner sc = new Scanner(System.in);
+
+        String zone = "";  //Fab ou centre ?
+        while (!(zone.equals("f") || zone.equals("c"))) {
+            System.out.println("fabrique(f) ou centre(c) ?");
+            zone = sc.nextLine();
+        }
+        if (zone.equals("f")) {
+            int fab = -1;  //Quelle fabrique ?
+            while (fab<0 || fab>=fabriques.length) {
+                System.out.println("Quelle fabrique choisissez vous ?");
+                System.out.println("Donnez un nombre entre 0 et " + fabriques.length-1);
+                fab = sc.nextInt();
+            }
+        }
+        String color = "";  //Quelle couleur de tuile ?
+        while (!(color.equals("b") || color.equals("j") || color.equals("r") || color.equals("n") || color.equals("b"))) {
+            System.out.println("Quelle couleur de tuile choisissez vous ?");
+            System.out.println("Bleu(b)? Jaune(j)? Rouge(r)? Noir(n)? Blanc(b)?");
+            color = sc.nextLine();
+        }
+        String destination = "";  //Vers où ?
+        while (!(destination.equals("l") || destination.equals("p"))) {
+            System.out.println("vers ligne motif(l) ou vers le plancher(p)");
+            destination = sc.nextLine();
+        }
+        if (destination.equals("l")) {
+            int ligne = -1;  //Quelle ligne ?
+            while (ligne<=0 || ligne>5) {
+                System.out.println("Quelle ligne choisissez vous ?");
+                System.out.println("Donnez un nombre entre 1 et 5");
+                ligne = sc.nextInt();
+            }
+        }
+
+
+        joueurs[i].ajouterTuile(zone, t, ligne);
     }
 }
