@@ -25,7 +25,7 @@ public class Plateau {
 
     public boolean addTuile(int ligne, int nombre, Tuile t) {
         int size_prev = ligne_motif.size(ligne);
-        if(ajoutable(ligne, t)) {
+        if(ajoutable(ligne, t) && !(t instanceof PremierJoueur)) {
             ligne_motif.add(ligne, nombre, t);
             int size_after = ligne_motif.size(ligne);
             plancher.add(nombre-(size_after-size_prev), t);

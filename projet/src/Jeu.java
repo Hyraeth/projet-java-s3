@@ -123,7 +123,7 @@ public class Jeu {
             }
         }
         String color = "";  //Quelle couleur de tuile ?
-        while (!(color.equals("bleu") || color.equals("jaune") || color.equals("rouge") || color.equals("noir") || color.equals("blanc"))) {
+        while (!(color.equals("bleu") || color.equals("jaune") || color.equals("rouge") || color.equals("noir") || color.equals("blanc") || color.equals("Premier joueur"))) {
             System.out.println("Quelle couleur de tuile choisissez vous ?");
             if(zone.equals("f")) System.out.println(fabriques[fab]);
             else System.out.println(centre);
