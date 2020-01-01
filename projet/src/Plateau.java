@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Plateau {
     private Plancher plancher;
     public Plancher getPlancher() { return plancher; }
@@ -15,6 +17,13 @@ public class Plateau {
     }
 
     public boolean ajoutable(int ligne, Tuile t) {
+        ArrayList colors = new ArrayList<>();
+        colors.add("bleu");
+        colors.add("jaune");
+        colors.add("rouge");
+        colors.add("noir");
+        colors.add("blanc");
+        if(!colors.contains(t.getColor())) return false;
         if(!ligne_motif.isEmpty(ligne)) {
             Case[][] lm = ligne_motif.getLigne();
             if(!lm[ligne][0].getTuile().equals(t) || mur.contains(ligne, t)) return false;
@@ -48,6 +57,14 @@ public class Plateau {
     }
 
 	public void addTuilePlancher(int n, Tuile t) {
+        ArrayList colors = new ArrayList<>();
+        colors.add("bleu");
+        colors.add("jaune");
+        colors.add("rouge");
+        colors.add("noir");
+        colors.add("blanc");
+        colors.add("Premier joueur");
+        if(!colors.contains(t.getColor())) return;
         plancher.add(n, t);
 	}
 
