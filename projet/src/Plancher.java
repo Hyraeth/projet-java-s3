@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public class Plancher {
     private int minus;
     private ArrayList<Tuile> plancher;
+    public ArrayList<Tuile> getPlancher() { return plancher; }
 
     public Plancher() {
         minus = 0;

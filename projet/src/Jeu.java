@@ -81,6 +81,12 @@ public class Jeu {
         return true;
     }
 
+    public int getPremierJoueur() {
+        for (int k = 0; k < fabriques.length; k++) {
+            if(joueurs[k]getPlateau().getPlancher().getPlancher().contains(new PremierJoueur())) return k;
+        } 
+    }
+
     public void play(int nbplayer, int option) {
         while(!partieFinie()) {
             if(sac.size() < fabriques.length * 4) sac.addAll();
@@ -88,7 +94,9 @@ public class Jeu {
                 fabrique.remplir(sac);
             }
             while (centre.isEmpty() && fabriques_vides()) {
-                //tour joueurs
+                int i = getPremierJoueur();
+                joueurs[i%nbplayer].joue();
+                i++;
             }
             //fin manche
             for (Joueur j : joueurs) {
@@ -96,10 +104,5 @@ public class Jeu {
                 j.moveToDefausse(); //Deplacer les tuiles des lignes motifs dans la défausse
             }
         }
-    }
-
-    //tour du joueur i
-    public void tour(int i) {
-        
     }
 }

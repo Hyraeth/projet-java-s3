@@ -47,5 +47,9 @@ public class Joueur {
 
 	public void moveToDefausse() {
         plateau.moveToDefausse();
-	}
+    }
+    
+    public void joue() {
+        Scanne
+    }
 }
