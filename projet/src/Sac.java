@@ -13,6 +13,7 @@ public class Sac {
             if(i>=60 && i<80) this.contenu.add(new Tuile("noir"));
             if(i>80) this.contenu.add(new Tuile("blanc"));
         }
+        Collections.shuffle(this.contenu);
     }
 
     public void enleverTuile() {
