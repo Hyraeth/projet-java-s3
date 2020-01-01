@@ -7,6 +7,7 @@ public class Jeu {
     private Fabrique[] fabriques;
     private Centre centre;
     private ArrayList<Joueur> joueurs;
+    private int manche;
     
     public Jeu(ArrayList<String> noms) {
         this.sac = new Sac();
