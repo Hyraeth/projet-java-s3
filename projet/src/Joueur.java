@@ -23,9 +23,14 @@ public class Joueur {
             return true;
         }
         else{
-            plateau.addTuilePlancher(n, t);
+            System.out.println("Ajout impossible");
             return false;
         }
+    }
+
+    public void ajouterTuilePlancher(ZoneCommune zc, Tuile t) {
+        int n = zc.count(t);
+        plateau.addTuilePlancher(n, t);
     }
 
     public static void main(String[] args) {
