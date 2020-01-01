@@ -176,7 +176,7 @@ public class Jeu {
         }
         String j = "";
         for (int i=0; i<nbjoueur; i++) {
-            System.out.println("joueur n°" + (i++));
+            System.out.println("joueur n°" + (i+1));
             j = scan.nextLine();
             a.add(j);
         }
