@@ -9,4 +9,15 @@ public class Mur {
             }
         }
     }
+
+    public String toString() {
+        String s = "";
+        for (Case[] cases : mur) {
+            for (Case case1 : cases) {
+                s += case1.toString() + "|";
+            }
+            s += "\n";
+        }
+        return s;
+    }
 }

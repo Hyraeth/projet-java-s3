@@ -36,4 +36,12 @@ public class Centre implements ZoneCommune{
     public void clear() {
         contenu.clear();
     }
+
+    public String toString() {
+        String s ="";
+        for (Tuile tuile : contenu) {
+            s += tuile.toString() +";";
+        }
+        return s;
+    }
 }

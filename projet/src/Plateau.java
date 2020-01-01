@@ -2,6 +2,7 @@ public class Plateau {
     private Plancher plancher;
     public Plancher getPlancher() { return plancher; }
     private LigneMotif ligne_motif;
+    public LigneMotif getLigneMotif() { return ligne_motif; }
     private Mur mur;
 
     public Plateau() {
@@ -20,6 +21,10 @@ public class Plateau {
             return true;
         }
         return false;
+    }
+
+    public String toString() {
+        return ligne_motif.toString()+"\n"+plancher.toString()+"\n"+mur.toString();
     }
 
 }

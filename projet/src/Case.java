@@ -20,4 +20,9 @@ public class Case {
         return false;
     }
 
+    public String toString() {
+        if(!isEmpty()) return tuile.toString();
+        return "empty";
+    }
+
 }

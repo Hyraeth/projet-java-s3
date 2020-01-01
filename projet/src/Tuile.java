@@ -12,6 +12,10 @@ public class Tuile {
         else return false;
     }
 
+    public String toString() {
+        return color;
+    }
+
 } class PremierJoueur extends Tuile {
 
     public PremierJoueur() {

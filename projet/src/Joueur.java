@@ -9,7 +9,7 @@ public class Joueur {
         plateau = new Plateau();
     }
 // Il faut prendre en compte la tuile premier joueur
-    public void ajouterTuile(ZoneCommune zc, Tuile t, int ligne) {
+    public boolean ajouterTuile(ZoneCommune zc, Tuile t, int ligne) {
         int n = zc.count(t);
         if(zc instanceof Centre && !((Centre) zc).firstMoveDone()) {
             plateau.getPlancher().add(1, new PremierJoueur());
@@ -17,8 +17,19 @@ public class Joueur {
         }
         if(plateau.addTuile(ligne, n, t)) {
             zc.remove(t);
+            return true;
         }
-        else
+        else{
             System.out.println("Ajout impossible");
+            return false;
+        }
+    }
+
+    public static void main(String[] args) {
+        Centre c = new Centre();
+        c.ajouterTuile(new Tuile("rouge"));
+        Joueur j = new Joueur("truc");
+        System.out.println(j.ajouterTuile(c, new Tuile("rouge"), 4));
+        System.out.println(j.plateau);
     }
 }

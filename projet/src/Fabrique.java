@@ -50,4 +50,12 @@ public class Fabrique implements ZoneCommune{
         return c;
     }
 
+    public String toString() {
+        String s = "";
+        for (Case case1 : fabrique) {
+            s+= case1.toString();
+        }
+        return s;
+    }
+
 }

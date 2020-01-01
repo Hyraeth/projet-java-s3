@@ -46,6 +46,18 @@ public class LigneMotif {
                 c++;
                 if(c==nombre) break;
             }
+            return true;
         } return false;
+    }
+
+    public String toString() {
+        String s = "";
+        for (Case[] cases : ligne_motif) {
+            for (Case case1 : cases) {
+                s += case1.toString()+ "|";
+            }
+            s+= "\n";
+        }
+        return s;
     }
 }

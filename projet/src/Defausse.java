@@ -33,4 +33,12 @@ public class Defausse {
         }
     }
 
+    public String toString() {
+        String s = "";
+        for (Tuile tuile : contenu) {
+            s += tuile.toString() +"; ";
+        }
+        return s;
+    }
+
 }

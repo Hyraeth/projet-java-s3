@@ -32,10 +32,21 @@ public class Plancher {
             }
             Defausse.ajouterTuile(n-7, t);
         } else {
+            int i =0;
             for (Case c : plancher) {
+                if(i==n) break;
                 if(c.isEmpty()) c.addTuile(t);
+                i++;
             }  
         }
         refreshMinus();
+    }
+
+    public String toString() {
+        String s = "";
+        for (Case case1 : plancher) {
+            s += case1.toString()+";";
+        }
+        return s;
     }
 }
