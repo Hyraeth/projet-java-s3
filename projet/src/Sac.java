@@ -8,10 +8,10 @@ public class Sac {
     public Sac () {
         for(int i = 0; i < 100; i++) {
             if(i<20) this.contenu.add(new Tuile("bleu"));
-            if(i>=20 && i<40) this.contenu.add(new Tuile("jaune"));
-            if(i>=40 && i<60) this.contenu.add(new Tuile("rouge"));
-            if(i>=60 && i<80) this.contenu.add(new Tuile("noir"));
-            if(i>80) this.contenu.add(new Tuile("blanc"));
+            else if(i>=20 && i<40) this.contenu.add(new Tuile("jaune"));
+            else if(i>=40 && i<60) this.contenu.add(new Tuile("rouge"));
+            else if(i>=60 && i<80) this.contenu.add(new Tuile("noir"));
+            else this.contenu.add(new Tuile("blanc"));
         }
         Collections.shuffle(this.contenu);
     }
