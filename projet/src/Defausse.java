@@ -5,20 +5,20 @@ public class Defausse {
     private static ArrayList<Tuile> contenu;
 
     public ArrayList<Tuile> getContenu() {
-        return this.contenu;
+        return Defausse.contenu;
     }
 
     public Defausse() {
-        this.contenu = new ArrayList<>();
+        Defausse.contenu = new ArrayList<>();
     }
 
     public void enleverTuile() {
-        Collections.shuffle(this.contenu);
-        this.contenu.remove(0);
+        Collections.shuffle(Defausse.contenu);
+        Defausse.contenu.remove(0);
     }
 
     public int nbTuiles() {
-        return this.contenu.size();
+        return Defausse.contenu.size();
     }
 
     public static void ajouterTuile(Tuile t) {
