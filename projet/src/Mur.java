@@ -39,25 +39,43 @@ public class Mur {
         return false;
     }
 
+    public int comptePoints(int i, int j) {
+        int pts = 0;
+        for (int l = 0; l < mur.length; l++) {
+            if(!mur[i][l].isEmpty()) pts++;
+        }
+        for (int k = 0; k < mur.length; k++) {
+            if(!mur[k][j].isEmpty()) pts++;
+        }
+        return pts;
+    }
+
     public int ajouter(Tuile t, int ligne) {
+        int pts = 0;
         switch (t.getColor()) {
             case "bleu":
                 mur[ligne][ligne].addTuile(t);
+                pts = comptePoints(ligne, ligne);
                 break;
             case "jaune":
                 mur[ligne][(ligne+1)%5].addTuile(t);
+                pts = comptePoints(ligne, (ligne+1)%5);
                 break;
             case "rouge":
                 mur[ligne][(ligne+2)%5].addTuile(t);
+                pts = comptePoints(ligne, (ligne+1)%5);
                 break;
             case "noir":
                 mur[ligne][(ligne+3)%5].addTuile(t);
+                pts = comptePoints(ligne, (ligne+1)%5);
                 break;
             case "blanc":
                 mur[ligne][(ligne+4)%5].addTuile(t);
+                pts = comptePoints(ligne, (ligne+1)%5);
                 break;
             default:
                 break;
         }
+        return pts;
     }
 }
