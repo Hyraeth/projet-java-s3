@@ -93,6 +93,7 @@ public class Jeu {
                 fabrique.remplir(sac);
             }
             int i = getPremierJoueur();
+            System.out.println("Tour du joueur "+joueurs[i].getNom());
             while (!centre.isEmpty() || !fabriques_vides()) {
                 joue(i%joueurs.length);
                 i++;
