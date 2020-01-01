@@ -113,18 +113,18 @@ public class Jeu {
             System.out.println("fabrique(f) ou centre(c) ?");
             zone = sc.nextLine();
         }
-        if (zone.equals("f")) {
-            int fab = -1;  //Quelle fabrique ?
+        int fab = -1; 
+        if (zone.equals("f")) { //Quelle fabrique ?
             while (fab<0 || fab>=fabriques.length) {
                 System.out.println("Quelle fabrique choisissez vous ?");
-                System.out.println("Donnez un nombre entre 0 et " + fabriques.length-1);
+                System.out.println("Donnez un nombre entre 0 et "+ (fabriques.length - 1));
                 fab = sc.nextInt();
             }
         }
         String color = "";  //Quelle couleur de tuile ?
-        while (!(color.equals("b") || color.equals("j") || color.equals("r") || color.equals("n") || color.equals("b"))) {
+        while (!(color.equals("bleu") || color.equals("jaune") || color.equals("rouge") || color.equals("noir") || color.equals("blanc"))) {
             System.out.println("Quelle couleur de tuile choisissez vous ?");
-            System.out.println("Bleu(b)? Jaune(j)? Rouge(r)? Noir(n)? Blanc(b)?");
+            System.out.println("bleu? jaune? rouge? noir? blanc?");
             color = sc.nextLine();
         }
         String destination = "";  //Vers où ?
@@ -132,16 +132,27 @@ public class Jeu {
             System.out.println("vers ligne motif(l) ou vers le plancher(p)");
             destination = sc.nextLine();
         }
-        if (destination.equals("l")) {
-            int ligne = -1;  //Quelle ligne ?
+        int ligne = -1;
+        if (destination.equals("l")) {  //Quelle ligne ?
             while (ligne<=0 || ligne>5) {
                 System.out.println("Quelle ligne choisissez vous ?");
                 System.out.println("Donnez un nombre entre 1 et 5");
                 ligne = sc.nextInt();
             }
         }
+        if(zone.equals("f")) {
+            if(destination.equals("l")) joueurs[i].ajouterTuile(fabriques[fab], new Tuile(color), ligne);
+            else joueurs[i].ajouterTuilePlancher(fabriques[fab], new Tuile(color));
+        } else {
+            if(destination.equals("l")) joueurs[i].ajouterTuile(centre, new Tuile(color), ligne);
+            else joueurs[i].ajouterTuilePlancher(fabriques[fab], new Tuile(color));
+        }
 
-
-        joueurs[i].ajouterTuile(zone, t, ligne);
+    }
+    public static void main(String[] args) {
+        ArrayList<String> a = new ArrayList<>();
+        a.add("pipi"); a.add("popo"); a.add("pupu");
+        Jeu j = new Jeu(a, 0);
+        j.jouer();
     }
 }
