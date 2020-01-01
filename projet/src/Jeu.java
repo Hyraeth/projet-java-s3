@@ -6,12 +6,7 @@ public class Jeu {
     private Defausse defausse;
     private Fabrique[] fabriques;
     private Centre centre;
-<<<<<<< HEAD
     private Joueur[] joueurs;
-=======
-    private ArrayList<Joueur> joueurs;
-    private int manche;
->>>>>>> 2a8f0c79e65d06b5a4437f451e63c5f92298307e
     
     public Jeu(ArrayList<String> noms) {
         this.sac = new Sac();
@@ -31,7 +26,6 @@ public class Jeu {
         }
     }
 
-<<<<<<< HEAD
     //tant que il n'y a pas de lignes de faite (partie pas terminer)
     public void partie () {
         int i =(int) (Math.random())*(this.joueurs.length-1);
@@ -85,9 +79,4 @@ public class Jeu {
     public void tour(int i) {
 
     }
-=======
-    
-
-    
->>>>>>> 2a8f0c79e65d06b5a4437f451e63c5f92298307e
 }
