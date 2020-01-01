@@ -8,7 +8,7 @@ public class Joueur {
         score = 0;
         plateau = new Plateau();
     }
-
+// Il faut prendre en compte la tuile premier joueur
     public void ajouterTuile(ZoneCommune zc, Tuile t, int ligne) {
         int n = zc.count(t);
         if(zc instanceof Centre && !((Centre) zc).firstMoveDone()) {
