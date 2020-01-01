@@ -24,7 +24,7 @@ public class Plateau {
     }
 
     public String toString() {
-        return ligne_motif.toString()+"\n"+plancher.toString()+"\n"+mur.toString();
+        return ligne_motif.toString()+"\n"+plancher.toString()+"\n\n"+mur.toString();
     }
 
 }
