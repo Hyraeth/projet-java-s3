@@ -134,7 +134,7 @@ public class Jeu {
         int fab = -1; 
         if (zone.equals("f")) { //Quelle fabrique ?
             Scanner sc2 = new Scanner(System.in);
-            while (fab<0 || fab>=fabriques.length) {
+            while (fab<0 || fab>=fabriques.length || fabriques[fab].isEmpty()) {
                 System.out.println("Quelle fabrique choisissez vous ?");
                 for (int j = 0; j < fabriques.length; j++) {
                     if(!fabriques[j].isEmpty()) System.out.println("Fabrique ("+j+") : "+fabriques[j]);
