@@ -2,6 +2,7 @@ package View;
 
 import javax.swing.*;
 
+import Model.Case;
 import Model.Jeu;
 
 import java.awt.*;
@@ -63,7 +64,11 @@ public class Vue extends JFrame {
             joueurs[i].add(plancher, c);//plancher
         }
         for (int i=0; i<fabriques.length; i++) {
-            fabriques[i] = new JPanel();
+            fabriques[i] = new JPanel(new GridLayout(2,2));
+            for (Case c : m.getFabrique(i).getFabrique()) {
+                fabriques[i].add(new JLabel(c.getTuile().getColor()));
+            }
+            
             fabriques[i].setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
         }
 

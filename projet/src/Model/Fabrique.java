@@ -3,6 +3,7 @@ package Model;
 public class Fabrique implements ZoneCommune {
 
     private Case[] fabrique;
+    public Case[] getFabrique() { return fabrique;}
 
     public Fabrique() {
         fabrique = new Case[4];
