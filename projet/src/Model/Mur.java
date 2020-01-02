@@ -1,3 +1,5 @@
+package Model;
+
 public class Mur {
     private Case[][] mur;
 

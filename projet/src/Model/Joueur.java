@@ -1,3 +1,5 @@
+package Model;
+
 public class Joueur {
     private int score;
     public int getScore() {return this.score;}

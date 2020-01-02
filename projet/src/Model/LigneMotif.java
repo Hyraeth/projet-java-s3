@@ -1,3 +1,5 @@
+package Model;
+
 public class LigneMotif {
     private Case[][] ligne_motif;
     public Case[][] getLigne() { return ligne_motif;}

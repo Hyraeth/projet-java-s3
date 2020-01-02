@@ -1,4 +1,6 @@
-public class Fabrique implements ZoneCommune{
+package Model;
+
+public class Fabrique implements ZoneCommune {
 
     private Case[] fabrique;
 
