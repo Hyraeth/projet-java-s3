@@ -175,6 +175,8 @@ public class Jeu {
                 if(fabriques[fab].count(new Tuile(color))!=0 && joueurs[i].ajouterTuile(fabriques[fab], new Tuile(color), ligne)) {
                     fabriques[fab].mettreCentre(centre);
                     fabriques[fab].clear();
+                } else {
+                    System.out.println("Ajout impossible");
                 }
             }
             else {
@@ -182,14 +184,22 @@ public class Jeu {
                     joueurs[i].ajouterTuilePlancher(fabriques[fab], new Tuile(color));
                     fabriques[fab].mettreCentre(centre);
                     fabriques[fab].clear();
+                }else {
+                    System.out.println("Ajout impossible");
                 }
             }
         } else {
             if(destination.equals("l")) {
                 if(centre.count(new Tuile(color))!=0) joueurs[i].ajouterTuile(centre, new Tuile(color), ligne);
+                else {
+                    System.out.println("Ajout impossible");
+                }
             }
             else {
                 if(centre.count(new Tuile(color))!=0) joueurs[i].ajouterTuilePlancher(fabriques[fab], new Tuile(color));
+                else {
+                    System.out.println("Ajout impossible");
+                }
             }
         }
 

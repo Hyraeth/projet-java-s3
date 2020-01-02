@@ -32,11 +32,11 @@ public class Vue extends JFrame {
         //Initialisation
         j = new JFrame();
         zoneCentre = new JPanel();
-        zoneCentre.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
+        zoneCentre.setBorder(BorderFactory.createTitledBorder("Centre"));
         zoneFabrique = new JPanel();
-        zoneFabrique.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
+        zoneFabrique.setBorder(BorderFactory.createTitledBorder("Fabrique"));
         zoneJoueurs = new JPanel();
-        zoneJoueurs.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
+        zoneJoueurs.setBorder(BorderFactory.createTitledBorder("Zone joueurs"));
 
         joueurs = new JPanel[nbjoueurs];
         fabriques = new JPanel[nbjoueurs*2+1];
