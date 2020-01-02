@@ -30,6 +30,10 @@ public class Jeu {
         option = o;
     }
 
+    public int getNombreJoueurs() {
+        return joueurs.length;
+    }
+
     public boolean partieFinie() {
         for (Joueur joueur : joueurs) {
             if(joueur.getPlateau().getMur().ligneRemplie()) return true;
