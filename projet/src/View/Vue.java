@@ -34,15 +34,13 @@ public class Vue extends JFrame {
         zoneCentre = new JPanel();
         zoneCentre.setBorder(BorderFactory.createTitledBorder("Centre"));
         zoneFabrique = new JPanel();
-        zoneFabrique.setBorder(BorderFactory.createTitledBorder("Fabrique"));
         zoneJoueurs = new JPanel();
-        zoneJoueurs.setBorder(BorderFactory.createTitledBorder("Zone joueurs"));
 
         joueurs = new JPanel[nbjoueurs];
         fabriques = new JPanel[nbjoueurs*2+1];
         for (int i=0; i<nbjoueurs; i++) {
             joueurs[i] = new JPanel(new GridBagLayout());
-            joueurs[i].setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
+            joueurs[i].setBorder(BorderFactory.createTitledBorder("Joueur N°"+i));
             GridBagConstraints c = new GridBagConstraints();
             c.fill = GridBagConstraints.BOTH;
             c.weightx = 1;
@@ -55,7 +53,7 @@ public class Vue extends JFrame {
             c.gridy = 1;
             JPanel plancher = new JPanel(new GridLayout(1,8));
             for (int j = 0; j < 7; j++) {
-                JLabel tuile = new JLabel();
+                JLabel tuile = new JLabel(j+"");
                 tuile.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
                 plancher.add(tuile);
             }
@@ -69,7 +67,7 @@ public class Vue extends JFrame {
                 if(!c.isEmpty()) fabriques[i].add(new JLabel(c.getTuile().getColor()));
             }
             
-            fabriques[i].setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
+            fabriques[i].setBorder(BorderFactory.createTitledBorder("Fabrique N°"+i));
         }
 
         //Parametre fenetre
