@@ -96,7 +96,7 @@ public class Jeu {
             while (!centre.isEmpty() || !fabriques_vides()) {
                 System.out.println("Tour du joueur "+joueurs[i].getNom());
                 for (int j = 0; j < fabriques.length; j++) {
-                    System.out.println("Fabrique ("+j+") : "+fabriques[j]);
+                    if(!fabriques[j].isEmpty()) System.out.println("Fabrique ("+j+") : "+fabriques[j]);
                 }
                 System.out.println("Centre : "+centre);
                 System.out.println(joueurs[i]);
@@ -154,11 +154,15 @@ public class Jeu {
         }
         if(zone.equals("f")) {
             if(destination.equals("l")) {
-                if(joueurs[i].ajouterTuile(fabriques[fab], new Tuile(color), ligne)) fabriques[fab].mettreCentre(centre);
+                if(joueurs[i].ajouterTuile(fabriques[fab], new Tuile(color), ligne)) {
+                    fabriques[fab].mettreCentre(centre);
+                    fabriques[fab].clear();
+                }
             }
             else {
                 joueurs[i].ajouterTuilePlancher(fabriques[fab], new Tuile(color));
                 fabriques[fab].mettreCentre(centre);
+                fabriques[fab].clear();
             }
         } else {
             if(destination.equals("l")) {
