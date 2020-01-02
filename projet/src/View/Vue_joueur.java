@@ -20,9 +20,12 @@ public class Vue_joueur extends JPanel {
     public Vue_joueur(Plateau m) {
         this.setLayout(new GridBagLayout());
         score = new JLabel("score");
+        plancher = new JPanel(new GridLayout(1,7));
+        plancher.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
         score.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
 
         GridBagConstraints c = new GridBagConstraints();
+
         c.fill = GridBagConstraints.BOTH;
         c.weightx = 1;
         c.weighty = 0.8;
@@ -36,13 +39,10 @@ public class Vue_joueur extends JPanel {
         c.gridy = 1;
 
         JPanel plancher_score = new JPanel(new GridLayout(1,8));
-        for (int i = 0; i < 7; i++) {
-            JLabel emplacement = new JLabel();
-            emplacement.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
-            plancher_score.add(emplacement);
-        }
 
+        plancher_score.add(plancher);
         plancher_score.add(score);
         plancher_score.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
+        this.add(plancher_score);
     }
 }

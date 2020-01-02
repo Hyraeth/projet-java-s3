@@ -109,9 +109,9 @@ public class Jeu {
                     if(!fabriques[j].isEmpty()) System.out.println("Fabrique ("+j+") : "+fabriques[j]);
                 }
                 System.out.println("Centre : "+centre);
-                System.out.println(joueurs[i]);
+                System.out.println(joueurs[i%joueurs.length]);
                 joue(i%joueurs.length);
-                System.out.println(joueurs[i]);
+                System.out.println(joueurs[i%joueurs.length]);
                 i++;
             }
             //fin manche
