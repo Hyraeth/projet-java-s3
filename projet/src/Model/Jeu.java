@@ -34,6 +34,10 @@ public class Jeu {
         return joueurs.length;
     }
 
+    public Joueur getJoueur(int i) {
+        return joueurs[i];
+    }
+
     public boolean partieFinie() {
         for (Joueur joueur : joueurs) {
             if(joueur.getPlateau().getMur().ligneRemplie()) return true;

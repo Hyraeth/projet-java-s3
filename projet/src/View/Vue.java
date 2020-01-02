@@ -40,7 +40,7 @@ public class Vue extends JFrame {
         joueurs = new JPanel[nbjoueurs];
         fabriques = new JPanel[nbjoueurs*2+1];
         for (int i=0; i<nbjoueurs; i++) {
-            joueurs[i] = new JPanel();
+            joueurs[i] = new Vue_joueur(m.getJoueur(i).getPlateau());
             joueurs[i].setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
         }
         for (int i=0; i<fabriques.length; i++) {
