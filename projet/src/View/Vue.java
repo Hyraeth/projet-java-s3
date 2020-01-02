@@ -40,8 +40,27 @@ public class Vue extends JFrame {
         joueurs = new JPanel[nbjoueurs];
         fabriques = new JPanel[nbjoueurs*2+1];
         for (int i=0; i<nbjoueurs; i++) {
-            joueurs[i] = new Vue_joueur(m.getJoueur(i).getPlateau());
+            joueurs[i] = new JPanel(new GridBagLayout());
             joueurs[i].setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
+            GridBagConstraints c = new GridBagConstraints();
+            c.fill = GridBagConstraints.BOTH;
+            c.weightx = 1;
+            c.weighty = 0.8;
+            c.gridy = 0;
+            JPanel lm_mur = new JPanel(new GridLayout(1,2));
+            lm_mur.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
+            joueurs[i].add(lm_mur, c);//ligne motif et mur
+            c.weighty = 0.2;
+            c.gridy = 1;
+            JPanel plancher = new JPanel(new GridLayout(1,8));
+            for (int j = 0; j < 7; j++) {
+                JLabel tuile = new JLabel();
+                tuile.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
+                plancher.add(tuile);
+            }
+            plancher.add(new JLabel("score"));
+            plancher.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
+            joueurs[i].add(plancher, c);//plancher
         }
         for (int i=0; i<fabriques.length; i++) {
             fabriques[i] = new JPanel();
