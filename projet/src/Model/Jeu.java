@@ -112,7 +112,7 @@ public class Jeu {
                 System.out.println(joueurs[i%joueurs.length]);
                 joue(i%joueurs.length);
                 System.out.println(joueurs[i%joueurs.length]);
-                i++;
+                i = (i+1)%joueurs.length;
             }
             //fin manche
             centre.ajouterTuile(new PremierJoueur());
