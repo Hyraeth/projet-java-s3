@@ -122,30 +122,34 @@ public class Jeu {
         }
         int fab = -1; 
         if (zone.equals("f")) { //Quelle fabrique ?
+            Scanner sc2 = new Scanner(System.in);
             while (fab<0 || fab>=fabriques.length) {
                 System.out.println("Quelle fabrique choisissez vous ?");
                 System.out.println("Donnez un nombre entre 0 et "+ (fabriques.length - 1));
-                fab = sc.nextInt();
+                fab = sc2.nextInt();
             }
         }
+        Scanner sc3 = new Scanner(System.in);
         String color = "";  //Quelle couleur de tuile ?
         while (!(color.equals("bleu") || color.equals("jaune") || color.equals("rouge") || color.equals("noir") || color.equals("blanc") || color.equals("Premier joueur"))) {
             System.out.println("Quelle couleur de tuile choisissez vous ?");
             if(zone.equals("f")) System.out.println(fabriques[fab]);
             else System.out.println(centre);
-            color = sc.nextLine();
+            color = sc3.nextLine();
         }
+        Scanner sc4 = new Scanner(System.in);
         String destination = "";  //Vers où ?
         while (!(destination.equals("l") || destination.equals("p"))) {
             System.out.println("vers ligne motif(l) ou vers le plancher(p)");
-            destination = sc.nextLine();
+            destination = sc4.nextLine();
         }
+        Scanner sc5 = new Scanner(System.in);
         int ligne = -1;
         if (destination.equals("l")) {  //Quelle ligne ?
             while (ligne<0 || ligne>4) {
                 System.out.println("Quelle ligne choisissez vous ?");
                 System.out.println("Donnez un nombre entre 0 et 4");
-                ligne = sc.nextInt();
+                ligne = sc5.nextInt();
             }
         }
         if(zone.equals("f")) {
