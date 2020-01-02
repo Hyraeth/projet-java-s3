@@ -19,7 +19,7 @@ public class Plateau {
     }
 
     public boolean ajoutable(int ligne, Tuile t) {
-        ArrayList colors = new ArrayList<>();
+        ArrayList<String> colors = new ArrayList<>();
         colors.add("bleu");
         colors.add("jaune");
         colors.add("rouge");
@@ -59,7 +59,7 @@ public class Plateau {
     }
 
 	public void addTuilePlancher(int n, Tuile t) {
-        ArrayList colors = new ArrayList<>();
+        ArrayList<String> colors = new ArrayList<>();
         colors.add("bleu");
         colors.add("jaune");
         colors.add("rouge");
