@@ -177,6 +177,7 @@ public class Jeu {
                     fabriques[fab].clear();
                 } else {
                     System.out.println("Ajout impossible");
+                    i--;
                 }
             }
             else {
@@ -186,6 +187,7 @@ public class Jeu {
                     fabriques[fab].clear();
                 }else {
                     System.out.println("Ajout impossible");
+                    i--;
                 }
             }
         } else {
@@ -193,12 +195,14 @@ public class Jeu {
                 if(centre.count(new Tuile(color))!=0) joueurs[i].ajouterTuile(centre, new Tuile(color), ligne);
                 else {
                     System.out.println("Ajout impossible");
+                    i--;
                 }
             }
             else {
                 if(centre.count(new Tuile(color))!=0) joueurs[i].ajouterTuilePlancher(fabriques[fab], new Tuile(color));
                 else {
                     System.out.println("Ajout impossible");
+                    i--;
                 }
             }
         }
