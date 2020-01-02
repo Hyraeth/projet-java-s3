@@ -21,6 +21,10 @@ public class Vue_joueur extends JPanel {
         this.setLayout(new GridBagLayout());
         score = new JLabel("score");
         plancher = new JPanel(new GridLayout(1,7));
+        lm = new JPanel(new GridLayout(5,1));
+        mur = new JPanel(new GridLayout(5,5));
+        lm.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
+        mur.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
         plancher.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
         score.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
 
@@ -32,8 +36,9 @@ public class Vue_joueur extends JPanel {
         c.gridy = 0;
 
         lm_mur = new JPanel(new GridLayout(1,2));
+        lm_mur.add(lm);
+        lm_mur.add(mur);
         lm_mur.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
-        this.add(lm_mur, c);//ligne motif et mur
 
         c.weighty = 0.2;
         c.gridy = 1;
@@ -43,6 +48,7 @@ public class Vue_joueur extends JPanel {
         plancher_score.add(plancher);
         plancher_score.add(score);
         plancher_score.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
+        this.add(lm_mur, c);//ligne motif et mur
         this.add(plancher_score);
     }
 }
