@@ -66,7 +66,7 @@ public class Vue extends JFrame {
         for (int i=0; i<fabriques.length; i++) {
             fabriques[i] = new JPanel(new GridLayout(2,2));
             for (Case c : m.getFabrique(i).getFabrique()) {
-                fabriques[i].add(new JLabel(c.getTuile().getColor()));
+                if(!c.isEmpty()) fabriques[i].add(new JLabel(c.getTuile().getColor()));
             }
             
             fabriques[i].setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));

@@ -19,6 +19,7 @@ public class Jeu {
         this.fabriques = new Fabrique[(noms.size())*2+1];
         for (int i = 0; i < fabriques.length; i++) {
             this.fabriques[i] = new Fabrique();
+            this.fabriques[i].remplir(sac);
         }
 
         this.centre = new Centre();
