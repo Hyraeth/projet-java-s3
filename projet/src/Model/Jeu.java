@@ -1,5 +1,3 @@
-package Model;
-
 import java.util.*;
 
 public class Jeu {
@@ -115,9 +113,9 @@ public class Jeu {
                 }
                 System.out.println("Centre : "+centre);
                 System.out.println(joueurs[i]);
-                joue(i%joueurs.length);
-                System.out.println(joueurs[i]);
+                i=joue(i%joueurs.length);
                 i = (i+1)%joueurs.length;
+                //System.out.println(joueurs[i]);
             }
             //fin manche
             centre.ajouterTuile(new PremierJoueur());
@@ -128,7 +126,7 @@ public class Jeu {
         }
     }
 
-    public void joue(int i) {
+    public int joue(int i) {
         Scanner sc = new Scanner(System.in);
 
         String zone = "";  //Fab ou centre ?
@@ -176,8 +174,8 @@ public class Jeu {
                     fabriques[fab].mettreCentre(centre);
                     fabriques[fab].clear();
                 } else {
-                    System.out.println("Ajout impossible");
-                    i--;
+                    System.out.println("AJOUT IMPOSSIBLE");
+                    return i-1;
                 }
             }
             else {
@@ -186,26 +184,27 @@ public class Jeu {
                     fabriques[fab].mettreCentre(centre);
                     fabriques[fab].clear();
                 }else {
-                    System.out.println("Ajout impossible");
-                    i--;
+                    System.out.println("AJOUT IMPOSSIBLE");
+                    return i-1;
                 }
             }
         } else {
             if(destination.equals("l")) {
                 if(centre.count(new Tuile(color))!=0) joueurs[i].ajouterTuile(centre, new Tuile(color), ligne);
                 else {
-                    System.out.println("Ajout impossible");
-                    i--;
+                    System.out.println("AJOUT IMPOSSIBLE");
+                    return i-1;
                 }
             }
             else {
                 if(centre.count(new Tuile(color))!=0) joueurs[i].ajouterTuilePlancher(fabriques[fab], new Tuile(color));
                 else {
-                    System.out.println("Ajout impossible");
-                    i--;
+                    System.out.println("AJOUT IMPOSSIBLE");
+                    return i-1;
                 }
             }
         }
+        return i;
 
     }
     public static void main(String[] args) {
