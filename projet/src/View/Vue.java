@@ -48,23 +48,35 @@ public class Vue extends JFrame {
             c.gridy = 0;
             JPanel lm_mur = new JPanel(new GridLayout(1,2));
             lm_mur.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
+            JPanel lm = new JPanel(new GridLayout(5,1));
+            lm.setBorder(BorderFactory.createTitledBorder("ligne motif"));
+            JPanel mur = new JPanel(new GridLayout(5,5));
+            mur.setBorder(BorderFactory.createTitledBorder("mur"));
+            lm_mur.add(lm);
+            lm_mur.add(mur);
             joueurs[i].add(lm_mur, c);//ligne motif et mur
             c.weighty = 0.2;
             c.gridy = 1;
             JPanel plancher = new JPanel(new GridLayout(1,8));
             for (int j = 0; j < 7; j++) {
                 JLabel tuile = new JLabel(j+"");
-                tuile.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
+                if(j<2) tuile.setBorder(BorderFactory.createTitledBorder("-"+1));
+                else if(j>4) tuile.setBorder(BorderFactory.createTitledBorder("-"+3));
+                else tuile.setBorder(BorderFactory.createTitledBorder("-"+2));
                 plancher.add(tuile);
             }
-            plancher.add(new JLabel("score"));
+            JLabel score = new JLabel("score");
+            score.setBorder(BorderFactory.createTitledBorder("score"));
+            plancher.add(score);
             plancher.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
             joueurs[i].add(plancher, c);//plancher
         }
         for (int i=0; i<fabriques.length; i++) {
             fabriques[i] = new JPanel(new GridLayout(2,2));
             for (Case c : m.getFabrique(i).getFabrique()) {
-                if(!c.isEmpty()) fabriques[i].add(new JLabel(c.getTuile().getColor()));
+                JLabel tuile = new JLabel(c.getTuile().getColor());
+                tuile.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
+                if(!c.isEmpty()) fabriques[i].add(tuile);
             }
             
             fabriques[i].setBorder(BorderFactory.createTitledBorder("Fabrique N°"+i));
