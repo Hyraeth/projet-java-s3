@@ -136,7 +136,9 @@ public class Jeu {
             Scanner sc2 = new Scanner(System.in);
             while (fab<0 || fab>=fabriques.length) {
                 System.out.println("Quelle fabrique choisissez vous ?");
-                System.out.println("Donnez un nombre entre 0 et "+ (fabriques.length - 1));
+                for (int j = 0; j < fabriques.length; j++) {
+                    if(!fabriques[j].isEmpty()) System.out.println("Fabrique ("+j+") : "+fabriques[j]);
+                }
                 fab = sc2.nextInt();
             }
         }
