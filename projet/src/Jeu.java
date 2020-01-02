@@ -120,6 +120,7 @@ public class Jeu {
             System.out.println("fabrique(f) ou centre(c) ?");
             zone = sc.nextLine();
         }
+        sc.close();
         int fab = -1; 
         if (zone.equals("f")) { //Quelle fabrique ?
             Scanner sc2 = new Scanner(System.in);
@@ -128,6 +129,7 @@ public class Jeu {
                 System.out.println("Donnez un nombre entre 0 et "+ (fabriques.length - 1));
                 fab = sc2.nextInt();
             }
+            sc2.close();
         }
         Scanner sc3 = new Scanner(System.in);
         String color = "";  //Quelle couleur de tuile ?
@@ -137,12 +139,14 @@ public class Jeu {
             else System.out.println(centre);
             color = sc3.nextLine();
         }
+        sc3.close();
         Scanner sc4 = new Scanner(System.in);
         String destination = "";  //Vers où ?
         while (!(destination.equals("l") || destination.equals("p"))) {
             System.out.println("vers ligne motif(l) ou vers le plancher(p)");
             destination = sc4.nextLine();
         }
+        sc4.close();
         Scanner sc5 = new Scanner(System.in);
         int ligne = -1;
         if (destination.equals("l")) {  //Quelle ligne ?
@@ -152,6 +156,7 @@ public class Jeu {
                 ligne = sc5.nextInt();
             }
         }
+        sc5.close();
         if(zone.equals("f")) {
             if(destination.equals("l")) {
                 if(joueurs[i].ajouterTuile(fabriques[fab], new Tuile(color), ligne)) {
