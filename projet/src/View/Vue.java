@@ -71,7 +71,7 @@ public class Vue extends JFrame {
         zoneJoueurs.setLayout(new GridLayout(1,2));
         if(nbjoueurs >= 3) zoneJoueurs.setLayout(new GridLayout(2,2));    
         zoneFabrique.setLayout(new GridLayout(fabriques.length, 1));  
-        
+
         //ajout dans les zones
         for (JPanel jPanel : joueurs) {
             zoneJoueurs.add(jPanel);
