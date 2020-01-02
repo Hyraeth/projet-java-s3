@@ -4,6 +4,13 @@ import java.util.ArrayList;
 
 public class Centre implements ZoneCommune{
     private ArrayList<Tuile> contenu;
+    public ArrayList<Tuile> getContenuCentre() {
+        return contenu;
+    }
+
+    public Tuile getTuileCentre(int i) {
+        return contenu.get(i);
+    }
 
     public Centre() {
         contenu = new ArrayList<>();

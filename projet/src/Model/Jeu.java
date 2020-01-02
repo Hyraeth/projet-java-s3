@@ -31,6 +31,10 @@ public class Jeu {
         option = o;
     }
 
+    public Centre getCentre() {
+        return centre;
+    }
+
     public int getNombreJoueurs() {
         return joueurs.length;
     }
