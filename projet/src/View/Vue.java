@@ -31,19 +31,21 @@ public class Vue extends JFrame {
         //Initialisation
         j = new JFrame();
         zoneCentre = new JPanel();
-        zoneCentre.setBackground(Color.blue);
+        zoneCentre.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
         zoneFabrique = new JPanel();
-        zoneFabrique.setBackground(Color.green);
+        zoneFabrique.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
         zoneJoueurs = new JPanel();
-        zoneJoueurs.setBackground(Color.red);
+        zoneJoueurs.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
 
         joueurs = new JPanel[nbjoueurs];
         fabriques = new JPanel[nbjoueurs*2+1];
         for (int i=0; i<nbjoueurs; i++) {
             joueurs[i] = new JPanel();
+            joueurs[i].setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
         }
         for (int i=0; i<fabriques.length; i++) {
             fabriques[i] = new JPanel();
+            fabriques[i].setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
         }
 
         //Parametre fenetre
@@ -70,7 +72,7 @@ public class Vue extends JFrame {
         //disposition des joueurs
         zoneJoueurs.setLayout(new GridLayout(1,2));
         if(nbjoueurs >= 3) zoneJoueurs.setLayout(new GridLayout(2,2));    
-        zoneFabrique.setLayout(new GridLayout(fabriques.length, 1));  
+        zoneFabrique.setLayout(new GridLayout(1, fabriques.length));  
 
         //ajout dans les zones
         for (JPanel jPanel : joueurs) {
