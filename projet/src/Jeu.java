@@ -174,10 +174,11 @@ public class Jeu {
             System.out.println("nombre de joueur ? (entre 2 et 4)");
             nbjoueur = scan.nextInt();
         }
+        Scanner scan2 = new Scanner(System.in);
         String j = "";
         for (int i=0; i<nbjoueur; i++) {
             System.out.println("joueur n°" + (i+1));
-            j = scan.nextLine();
+            j = scan2.nextLine();
             a.add(j);
         }
         Jeu jeu = new Jeu(a, 0);
