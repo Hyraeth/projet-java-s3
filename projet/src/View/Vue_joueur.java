@@ -14,7 +14,6 @@ public class Vue_joueur extends JPanel {
     public JPanel mur;
     public JPanel plancher_score;
     public JPanel plancher;
-    public JLabel tuile;
     public JLabel score;
 
     public Vue_joueur(Plateau m) {
@@ -26,6 +25,11 @@ public class Vue_joueur extends JPanel {
         lm.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
         mur.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
         plancher.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
+        for (int i = 0; i < 7; i++) {
+            JLabel tuile = new JLabel();
+            tuile.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
+            plancher.add(tuile);
+        }
         score.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
 
         lm_mur = new JPanel(new GridLayout(1,2));
