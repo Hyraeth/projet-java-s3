@@ -16,6 +16,7 @@ public class Controleur {
     }
 
     public void sauvegarder(Tuile t, ZoneCommune zc) {
+        if(t != null)
         mem = new LastPicked(t, zc);
     }
 

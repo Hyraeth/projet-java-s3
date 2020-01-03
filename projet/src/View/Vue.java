@@ -122,11 +122,14 @@ public class Vue extends JFrame {
                     Tuile color = c.getTuile();
                     int numfab = i;
                     ImageIcon image = new ImageIcon("projet\\src\\img\\"+c.getTuile().getColor()+".png");
-                    Tuiles_fabrique[i][j] = new JButton(image);
+                    Tuiles_fabrique[i][j] = new JButton();
+                    Tuiles_fabrique[i][j].setIcon(image);
                     Tuiles_fabrique[i][j].addActionListener((event) -> controleur.sauvegarder(color, model.getFabrique(numfab)));
                     Tuiles_fabrique[i][j].setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
                 } else {
-                    Tuiles_fabrique[i][j] = new JButton();
+                    Tuiles_fabrique[i][j].setIcon(null);
+                    Tuiles_fabrique[i][j].setEnabled(false);
+                    Tuiles_fabrique[i][j].setBackground(Color.gray);
                     Tuiles_fabrique[i][j].setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
                 }
                 j++;
