@@ -43,12 +43,6 @@ public class Fabrique implements ZoneCommune {
         
     }
 
-    public void mettreCentre(Centre centre) {
-        for (Case c : fabrique) {
-            if(!c.isEmpty()) centre.ajouterTuile(c.getTuile());
-        }
-    }
-
     public void clear() {
         for (Case c : fabrique) {
             c.clear();

@@ -49,7 +49,12 @@ public class Jeu {
 
     public void foutre_au_centre() {
         for (Fabrique fabrique : fabriques) {
-            if(fabrique.Remplie()) fabrique.mettreCentre(centre); 
+            if(!fabrique.Remplie()) {
+                for (Case c : fabrique.getFabrique()) {
+                    if(!c.isEmpty()) centre.ajouterTuile(c.getTuile());
+                }
+            }
+            fabrique.clear();
         }
     }
 
@@ -183,7 +188,7 @@ public class Jeu {
         if(zone.equals("f")) {
             if(destination.equals("l")) {
                 if(fabriques[fab].count(new Tuile(color))!=0 && joueurs[i].ajouterTuile(fabriques[fab], new Tuile(color), ligne)) {
-                    fabriques[fab].mettreCentre(centre);
+                    foutre_au_centre();
                     fabriques[fab].clear();
                 } else {
                     System.out.println("AJOUT IMPOSSIBLE");
@@ -193,7 +198,7 @@ public class Jeu {
             else {
                 if(fabriques[fab].count(new Tuile(color))!=0 ) {
                     joueurs[i].ajouterTuilePlancher(fabriques[fab], new Tuile(color));
-                    fabriques[fab].mettreCentre(centre);
+                    foutre_au_centre();
                     fabriques[fab].clear();
                 }else {
                     System.out.println("AJOUT IMPOSSIBLE");
