@@ -12,4 +12,15 @@ public class LastPicked {
         nombre = zc.count(t);
         origine = zc;
     }
+
+    public void clear() {
+        tuile = null;
+        nombre = 0;
+        origine = null;
+    }
+
+    public boolean isEmpty() {
+        if(tuile==null && nombre==0 && origine == null) return true;
+        return false;
+    }
 }
