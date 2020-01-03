@@ -150,10 +150,10 @@ public class Vue extends JFrame {
         MAJ_Fabrique();
     }
 
-    public void GROSSE_MAJ(Joueur j) {
+    public void GROSSE_MAJ() {
         MAJ();
         for (JPanelJoueur jpj : joueurs) {
-            jpj.MAJ_Joueur(j);
+            jpj.MAJ_Joueur(jpj.id);
         }
     }
 

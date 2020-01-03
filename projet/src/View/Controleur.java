@@ -21,11 +21,11 @@ public class Controleur {
 
     public void ajouterLigne(int ligne, int id) {
         model.getJoueur(id).ajouterTuile(mem.origine, mem.tuile, ligne);
-        vue.GROSSE_MAJ(model.getJoueur(id));
+        vue.GROSSE_MAJ();
     }
 
     public void ajouterPlancher(int id) {
         model.getJoueur(id).ajouterTuilePlancher(mem.origine, mem.tuile);
-        vue.GROSSE_MAJ(model.getJoueur(id));
+        vue.GROSSE_MAJ();
     }
 }

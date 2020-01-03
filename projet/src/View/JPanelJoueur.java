@@ -14,6 +14,8 @@ public class JPanelJoueur extends JPanel {
 
     public String nom;
     public int id;
+    Jeu model;
+    Controleur controleur;
 
     public JPanel plancher;
     public JPanel lm_mur;
@@ -30,6 +32,8 @@ public class JPanelJoueur extends JPanel {
         super(new GridBagLayout());
         super.setBorder(BorderFactory.createTitledBorder(nom));
         this.nom = nom;
+        model = m;
+        controleur = con;
         this.id = id;
         GridBagConstraints c = new GridBagConstraints();
         c.fill = GridBagConstraints.BOTH;
@@ -114,8 +118,8 @@ public class JPanelJoueur extends JPanel {
         super.add(plancher, c);// plancher
     }
 
-    public void MAJ_Mur(Joueur j) {
-        Case[][] c = j.getPlateau().getMur().getCasesMur();
+    public void MAJ_Mur(int id) {
+        Case[][] c = model.getJoueur(id).getPlateau().getMur().getCasesMur();
         for (int i = 0; i < c.length; i++) {
             for (int k = 0; k < c[i].length; k++) {
                 if(!c[i][k].isEmpty()) Tuiles_Mur[i][k].setIcon(new ImageIcon("projet\\src\\img\\"+c[i][k].getTuile().getColor()+".png"));
@@ -123,8 +127,8 @@ public class JPanelJoueur extends JPanel {
         }
     }
 
-    public void MAJ_LM(Joueur j) {
-        Case[][] c = j.getPlateau().getLigneMotif().getLigne();
+    public void MAJ_LM(int id) {
+        Case[][] c = model.getJoueur(id).getPlateau().getLigneMotif().getLigne();
         for (int i = 0; i < c.length; i++) {
             for (int k = 0; k < c[i].length; k++) {
                 if(!c[i][k].isEmpty()) Tuiles_Ligne[i][k].setIcon(new ImageIcon("projet\\src\\img\\"+c[i][k].getTuile().getColor()+".png"));
@@ -132,22 +136,22 @@ public class JPanelJoueur extends JPanel {
         }
     }
 
-    public void MAJ_Plancher(Joueur j) {
-        for (int i = 0; i < j.getPlateau().getPlancher().getPlancher().size(); i++) {
-            ArrayList<Tuile> a = j.getPlateau().getPlancher().getPlancher();
+    public void MAJ_Plancher(int id) {
+        for (int i = 0; i < model.getJoueur(id).getPlateau().getPlancher().getPlancher().size(); i++) {
+            ArrayList<Tuile> a = model.getJoueur(id).getPlateau().getPlancher().getPlancher();
             if(i<7) Tuiles_Plancher[i].setIcon(new ImageIcon("projet\\src\\img\\"+a.get(i).getColor()+".png"));
         }
     }
 
-    public void MAJ_Score(Joueur j) {
-        score.setText(j.getScore()+"");
+    public void MAJ_Score(int id) {
+        score.setText(model.getJoueur(id).getScore()+"");
     }
 
-    public void MAJ_Joueur(Joueur j) {
-        MAJ_LM(j);
-        MAJ_Mur(j);
-        MAJ_Plancher(j);
-        MAJ_Score(j);
+    public void MAJ_Joueur(int id) {
+        MAJ_LM(id);
+        MAJ_Mur(id);
+        MAJ_Plancher(id);
+        MAJ_Score(id);
     }
     
 }
