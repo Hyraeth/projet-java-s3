@@ -51,9 +51,7 @@ public class Plateau {
         int sc = 0;
         boolean[] b = ligne_motif.lignesRemplies();
         for (int i = 0; i < b.length; i++) {
-            System.out.println("ligne remple?");
             if(ligne_motif.isRemplie(i)) {
-                System.out.println(i+" cette ligne est remplie");
                 sc += mur.ajouter(ligne_motif.getColorLine(i), i);
             }
         }

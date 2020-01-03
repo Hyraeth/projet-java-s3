@@ -118,18 +118,18 @@ public class JPanelJoueur extends JPanel {
         super.add(plancher, c);// plancher
     }
 
-    public void MAJ_Mur(int id) {
+    public void MAJ_Mur() {
         Case[][] c = model.getJoueur(id).getPlateau().getMur().getCasesMur();
         for (int i = 0; i < c.length; i++) {
             for (int k = 0; k < c[i].length; k++) {
                 if(!c[i][k].isEmpty()) {
-                    Tuiles_Mur[i][k].setIcon(new ImageIcon("projet\\src\\img\\"+c[i][k].getTuile().getColor()+".png"));
+                    Tuiles_Mur[i][k].setIcon(new ImageIcon("projet\\src\\img\\"+c[i][k].getTuile()+".png"));
                 }
             }
         }
     }
 
-    public void MAJ_LM(int id) {
+    public void MAJ_LM() {
         Case[][] c = model.getJoueur(id).getPlateau().getLigneMotif().getLigne();
         for (int i = 0; i < c.length; i++) {
             for (int k = 0; k < c[i].length; k++) {
@@ -138,22 +138,21 @@ public class JPanelJoueur extends JPanel {
         }
     }
 
-    public void MAJ_Plancher(int id) {
+    public void MAJ_Plancher() {
         for (int i = 0; i < model.getJoueur(id).getPlateau().getPlancher().getPlancher().size(); i++) {
             ArrayList<Tuile> a = model.getJoueur(id).getPlateau().getPlancher().getPlancher();
             if(i<7) Tuiles_Plancher[i].setIcon(new ImageIcon("projet\\src\\img\\"+a.get(i).getColor()+".png"));
         }
     }
 
-    public void MAJ_Score(int id) {
+    public void MAJ_Score() {
         score.setText(model.getJoueur(id).getScore()+"");
     }
 
-    public void MAJ_Joueur(int id) {
-        MAJ_LM(id);
-        MAJ_Mur(id);
-        MAJ_Plancher(id);
-        MAJ_Score(id);
+    public void MAJ_Joueur() {
+        MAJ_LM();
+        MAJ_Plancher();
+        MAJ_Score();
     }
     
 }

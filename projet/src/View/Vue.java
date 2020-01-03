@@ -173,7 +173,7 @@ public class Vue extends JFrame {
     public void GROSSE_MAJ() {
         MAJ();
         for (JPanelJoueur jpj : joueurs) {
-            jpj.MAJ_Joueur(jpj.id);
+            jpj.MAJ_Joueur();
         }
     }
 

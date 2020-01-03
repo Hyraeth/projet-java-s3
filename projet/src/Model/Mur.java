@@ -44,15 +44,34 @@ public class Mur {
         return false;
     }
 
+    public int compteHori(int i, int j) {
+        int n = 0;
+        for (int k = i+1; k < 5; k++) {
+            if(mur[k][j].isEmpty()) break;
+            n++;
+        }
+        for (int k = i-1; k >= 0; k--) {
+            if(mur[k][j].isEmpty()) break;
+            n++;
+        }
+        return n;
+    }
+
+    public int compteVerti(int i, int j) {
+        int n = 0;
+        for (int k = j+1; k < 5; k++) {
+            if(mur[i][k].isEmpty()) break;
+            n++;
+        }
+        for (int k = j-1; k >= 0; k--) {
+            if(mur[i][k].isEmpty()) break;
+            n++;
+        }
+        return n;
+    }
+
     public int comptePoints(int i, int j) {
-        int pts = 0;
-        for (int l = 0; l < mur.length; l++) {
-            if(!mur[i][l].isEmpty()) pts++;
-        }
-        for (int k = 0; k < mur.length; k++) {
-            if(!mur[k][j].isEmpty()) pts++;
-        }
-        return pts;
+        return compteHori(i, j) + compteVerti(i, j) + 1;
     }
 
     public int ajouter(Tuile t, int ligne) {
