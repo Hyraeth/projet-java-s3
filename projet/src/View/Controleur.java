@@ -27,5 +27,6 @@ public class Controleur {
     public void ajouterPlancher(int id) {
         model.getJoueur(id).ajouterTuilePlancher(mem.origine, mem.tuile);
         vue.GROSSE_MAJ();
+        mem = null;
     }
 }
