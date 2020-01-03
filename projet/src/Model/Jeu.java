@@ -119,10 +119,10 @@ public class Jeu {
                 fabrique.remplir(sac);
             }   
         centre.ajouterTuile(new PremierJoueur());
-            for (Joueur j : joueurs) {
-                j.updateWall(); //Deplacer les tuiles des lignes motifs remplie dans le mur et mettre a jour le score
-                j.moveToDefausse(); //Deplacer les tuiles des lignes motifs dans la défausse
-            }
+        for (Joueur j : joueurs) {
+            j.updateWall(); //Deplacer les tuiles des lignes motifs remplie dans le mur et mettre a jour le score
+            j.moveToDefausse(); //Deplacer les tuiles des lignes motifs dans la défausse
+        }
     }
 
     public int getPremierJoueur() {
