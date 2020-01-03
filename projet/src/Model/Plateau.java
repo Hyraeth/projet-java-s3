@@ -49,7 +49,10 @@ public class Plateau {
         int sc = 0;
         boolean[] b = ligne_motif.lignesRemplies();
         for (int i = 0; i < b.length; i++) {
-            if(b[i]) sc += mur.ajouter(ligne_motif.getColorLine(i), i);
+            if(b[i]) {
+                System.out.println(i+" cette ligne est remplie");
+                sc += mur.ajouter(ligne_motif.getColorLine(i), i);
+            }
         }
         return sc;
     }

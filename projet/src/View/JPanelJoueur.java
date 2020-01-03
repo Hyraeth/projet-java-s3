@@ -122,7 +122,9 @@ public class JPanelJoueur extends JPanel {
         Case[][] c = model.getJoueur(id).getPlateau().getMur().getCasesMur();
         for (int i = 0; i < c.length; i++) {
             for (int k = 0; k < c[i].length; k++) {
-                if(!c[i][k].isEmpty()) Tuiles_Mur[i][k].setIcon(new ImageIcon("projet\\src\\img\\"+c[i][k].getTuile().getColor()+".png"));
+                if(!c[i][k].isEmpty()) {
+                    Tuiles_Mur[i][k].setIcon(new ImageIcon("projet\\src\\img\\"+c[i][k].getTuile().getColor()+".png"));
+                }
             }
         }
     }

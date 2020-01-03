@@ -65,7 +65,7 @@ public class LigneMotif {
 
     public void moveToDefausse() {
         for (int i = 0; i < ligne_motif.length; i++) {
-            if(!isRemplie(i))  {
+            if(isRemplie(i))  {
                 Defausse.ajouterTuile(size(i)-1, getColorLine(i));
                 clearLine(i);
             }

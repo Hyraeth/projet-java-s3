@@ -27,6 +27,8 @@ public class Controleur {
         }
         if(model.mancheFinie()) {
             model.nouvelleManche();
+            System.out.println(model.getJoueur(0).getPlateau());
+            vue.GROSSE_MAJ();
         }
         vue.GROSSE_MAJ();
         mem.clear();
@@ -39,6 +41,8 @@ public class Controleur {
         }
         if(model.mancheFinie()) {
             model.nouvelleManche();
+            System.out.println(model.getJoueur(0).getPlateau());
+            vue.GROSSE_MAJ();
         }
         vue.GROSSE_MAJ();
         mem.clear();

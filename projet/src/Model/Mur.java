@@ -78,8 +78,6 @@ public class Mur {
                 mur[ligne][(ligne+4)%5].addTuile(t);
                 pts = comptePoints(ligne, (ligne+1)%5);
                 break;
-            default:
-                break;
         }
         return pts;
     }
