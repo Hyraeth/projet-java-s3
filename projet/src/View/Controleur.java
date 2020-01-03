@@ -28,7 +28,7 @@ public class Controleur {
         //bug mur le plateau de chaque joueur n'a pas été mise a jour
         if(model.mancheFinie()) {
             model.nouvelleManche();
-            System.out.println(model.getJoueur(0).getPlateau());
+            System.out.println(model.getJoueur(0));
             vue.GROSSE_MAJ();
         }
         vue.GROSSE_MAJ();
@@ -43,7 +43,7 @@ public class Controleur {
         //bug mur le plateau de chaque joueur n'a pas été mise a jour
         if(model.mancheFinie()) {
             model.nouvelleManche();
-            System.out.println(model.getJoueur(0).getPlateau());
+            System.out.println(model.getJoueur(0));
             vue.GROSSE_MAJ();
         }
         if(model.partieFinie()) {

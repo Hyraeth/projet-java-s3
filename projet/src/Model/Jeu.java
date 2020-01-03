@@ -129,7 +129,6 @@ public class Jeu {
         centre.ajouterTuile(new PremierJoueur());
         for (Joueur j : joueurs) {
             j.updateWall(); //Deplacer les tuiles des lignes motifs remplie dans le mur et mettre a jour le score
-            System.out.println("update wall");
             j.moveToDefausse(); //Deplacer les tuiles des lignes motifs dans la défausse
         }
     }
