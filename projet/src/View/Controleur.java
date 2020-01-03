@@ -27,9 +27,12 @@ public class Controleur {
     }
 
     public void ajouterPlancher(int id) {
-        model.getJoueur(id).ajouterTuilePlancher(mem.origine, mem.tuile);
-        mem = null;
-        model.foutre_au_centre();
-        vue.GROSSE_MAJ();
+        if(mem != null) {
+            model.getJoueur(id).ajouterTuilePlancher(mem.origine, mem.tuile);
+            mem = null;
+            model.foutre_au_centre();
+            vue.GROSSE_MAJ();
+        }
+        
     }
 }
