@@ -26,7 +26,6 @@ public class Vue extends JFrame {
     public JPanel zoneJoueurs;
     public JPanel[] joueurs;
 
-
     public Vue(Jeu m, Controleur con) {
 
         model = m;
@@ -130,13 +129,16 @@ public class Vue extends JFrame {
         for (int i = 0; i < Tuiles_fabrique.length; i++) {
             int j = 0;
             for (Case c : model.getFabrique(i).getFabrique()) {
-                JLabel tuile = new JLabel();
-                tuile.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
                 if(!c.isEmpty()) {
                     ImageIcon image = new ImageIcon("projet\\src\\img\\"+c.getTuile().getColor()+".png");
-                    tuile.setIcon(image);
+                    JLabel tuile = new JLabel(image);
+                    tuile.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
+                    Tuiles_fabrique[i][j] = tuile;
+                } else {
+                    JLabel tuile = new JLabel();
+                    tuile.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
+                    Tuiles_fabrique[i][j] = tuile;                
                 }
-                Tuiles_fabrique[i][j] = tuile;                
                 j++;
             }
         }
