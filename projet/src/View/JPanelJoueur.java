@@ -15,8 +15,10 @@ public class JPanelJoueur extends JPanel {
     public JPanel plancher;
     public JPanel lm_mur;
     public JPanel lm;
+    public JPanel[] lignes;
     public JPanel mur;
 
+    public JLabel[][] Tuiles_LM;
     public JLabel[][] Tuiles_Mur;
     public JLabel[] Tuiles_Plancher;
     public JLabel score;
