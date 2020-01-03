@@ -142,7 +142,8 @@ public class Vue extends JFrame {
         for (int i = 0; i < model.getCentre().getContenuCentre().size(); i++) {
             Tuile color = model.getCentre().getTuileCentre(i);
             ImageIcon image = new ImageIcon("projet\\src\\img\\"+color+".png");
-            JButton jl = new JButton(image);
+            JButton jl = new JButton();
+            jl.setIcon(image);
             jl.addActionListener((event) -> controleur.sauvegarder(color, model.getCentre()));
             Tuiles_centre.add(jl);
         }
