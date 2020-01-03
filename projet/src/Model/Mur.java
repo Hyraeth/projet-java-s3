@@ -2,6 +2,9 @@ package Model;
 
 public class Mur {
     private Case[][] mur;
+    public Case[][] getCasesMur() {
+        return mur;
+    }
 
     public Mur() {
         mur = new Case[5][5];

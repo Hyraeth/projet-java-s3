@@ -17,6 +17,7 @@ public class JPanelJoueur extends JPanel {
     public JPanel lm;
     public JPanel mur;
 
+    public JLabel[][] Tuiles_Mur;
     public JLabel[] Tuiles_Plancher;
     public JLabel score;
 
@@ -52,9 +53,9 @@ public class JPanelJoueur extends JPanel {
         }
 
         //Remplissage du mur de fausse icone
+        Tuiles_Mur = new JLabel[5][5];
         for (int j = 0; j < 25; j++) {
             ImageIcon icon;
-            JLabel jl;
             if (j == 0 || j == 6 || j == 12 || j == 18 || j == 24)
                 icon = new ImageIcon("projet\\src\\img\\bleufake.png");
             else if (j == 1 || j == 7 || j == 13 || j == 19 || j == 20)
@@ -66,9 +67,9 @@ public class JPanelJoueur extends JPanel {
             else
                 icon = new ImageIcon("projet\\src\\img\\blancfake.png");
 
-            jl = new JLabel(icon);
-            jl.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
-            mur.add(jl);
+            Tuiles_Mur[j%5][j%5] = new JLabel(icon);
+            Tuiles_Mur[j%5][j%5].setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
+            mur.add(Tuiles_Mur[j%5][j%5]);
         }
 
         //Ajout au lm_mur du lm et mur
@@ -99,6 +100,19 @@ public class JPanelJoueur extends JPanel {
         plancher.add(score);
         plancher.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
         super.add(plancher, c);// plancher
+    }
+
+    public void MAJ_Mur(Joueur j) {
+        Case[][] c = j.getPlateau().getMur().getCasesMur();
+        for (int i = 0; i < c.length; i++) {
+            for (int k = 0; k < c[i].length; k++) {
+                if(!c[i][k].isEmpty()) Tuiles_Mur[i][k].setIcon(new ImageIcon("projet\\src\\img\\"+c[i][k].getTuile().getColor()+"ake.png"));
+            }
+        }
+    }
+
+    public void MAJ_LM() {
+
     }
 
     public void MAJ_Plancher(Joueur j) {
