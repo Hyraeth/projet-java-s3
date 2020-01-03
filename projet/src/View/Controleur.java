@@ -33,7 +33,7 @@ public class Controleur {
     }
 
     public void ajouterPlancher(int id) {
-        if(mem.isEmpty()) {
+        if(!mem.isEmpty()) {
             model.getJoueur(id).ajouterTuilePlancher(mem.origine, mem.tuile);
             model.foutre_au_centre();
         }

@@ -56,9 +56,16 @@ public class LigneMotif {
         return b;
     }
 
+    public boolean isRemplie(int i) {
+        for (int j = 0; j < ligne_motif [i].length; j++) {
+            if(ligne_motif[i][j].isEmpty()) return false;
+        }
+        return true;
+    }
+
     public void moveToDefausse() {
         for (int i = 0; i < ligne_motif.length; i++) {
-            if(!isEmpty(i))  {
+            if(!isRemplie(i))  {
                 Defausse.ajouterTuile(size(i)-1, getColorLine(i));
                 clearLine(i);
             }

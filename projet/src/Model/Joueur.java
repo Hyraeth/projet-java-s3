@@ -37,6 +37,7 @@ public class Joueur {
     public void ajouterTuilePlancher(ZoneCommune zc, Tuile t) {
         int n = zc.count(t);
         plateau.addTuilePlancher(n, t);
+        zc.remove(t);
     }
 
     public static void main(String[] args) {
