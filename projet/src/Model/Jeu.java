@@ -53,8 +53,8 @@ public class Jeu {
                 for (Case c : fabrique.getFabrique()) {
                     if(!c.isEmpty()) centre.ajouterTuile(c.getTuile());
                 }
+                fabrique.clear();
             }
-            fabrique.clear();
         }
     }
 
