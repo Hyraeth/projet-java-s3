@@ -17,12 +17,15 @@ public class Vue extends JFrame {
     public JFrame j;
 
     public JPanel zoneCentre;
-    public JPanel zoneFabrique;
-    public JPanel zoneJoueurs;
+    public ArrayList<JLabel> Tuiles_centre;
 
-    public JPanel[] joueurs;
+    public JPanel zoneFabrique;
     public JPanel[] fabriques;
-    public JLabel[] centre;
+    public JLabel[][] Tuiles_fabrique;
+
+    public JPanel zoneJoueurs;
+    public JPanel[] joueurs;
+
 
     public Vue(Jeu m, Controleur con) {
 
@@ -43,88 +46,45 @@ public class Vue extends JFrame {
         // Creation des zones pour chaque joueur
 
         for (int i = 0; i < nbjoueurs; i++) {
-            joueurs[i] = new JPanel(new GridBagLayout());
-            joueurs[i].setBorder(BorderFactory.createTitledBorder("Joueur N°" + i));
-            GridBagConstraints c = new GridBagConstraints();
-            c.fill = GridBagConstraints.BOTH;
-            c.weightx = 1;
-            c.weighty = 0.8;
-            c.gridy = 0;
-
-            //ligne motif et mur
-
-            JPanel lm_mur = new JPanel(new GridLayout(1, 2));
-            lm_mur.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
-            JPanel lm = new JPanel(new GridLayout(5, 1));
-            lm.setBorder(BorderFactory.createTitledBorder("ligne motif"));
-            JPanel mur = new JPanel(new GridLayout(5, 5));
-            mur.setBorder(BorderFactory.createTitledBorder("mur"));
-
-            //Remplissage du mur de fausse icone
-            for (int j = 0; j < 25; j++) {
-                ImageIcon icon;
-                JLabel jl;
-                if (j == 0 || j == 6 || j == 12 || j == 18 || j == 24)
-                    icon = new ImageIcon("projet\\src\\img\\bleufake.png");
-                else if (j == 1 || j == 7 || j == 13 || j == 19 || j == 20)
-                    icon = new ImageIcon("projet\\src\\img\\jaunefake.png");
-                else if (j == 2 || j == 8 || j == 14 || j == 15 || j == 21)
-                    icon = new ImageIcon("projet\\src\\img\\rougefake.png");
-                else if (j == 3 || j == 9 || j == 10 || j == 16 || j == 22)
-                    icon = new ImageIcon("projet\\src\\img\\noirfake.png");
-                else
-                    icon = new ImageIcon("projet\\src\\img\\blancfake.png");
-
-                jl = new JLabel(icon);
-                jl.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
-                mur.add(jl);
-            }
-
-            //Ajout au lm_mur du lm et mur
-            lm_mur.add(lm);
-            lm_mur.add(mur);
-            //Ajout dans la zone joueur du lm et mur
-            joueurs[i].add(lm_mur, c);
-
-
-            //plancher et score
-            c.weighty = 0.2;
-            c.gridy = 1;
-            JPanel plancher = new JPanel(new GridLayout(1, 8));
-            for (int j = 0; j < 7; j++) {
-                JLabel tuile = new JLabel(j + "");
-                if (j < 2)
-                    tuile.setBorder(BorderFactory.createTitledBorder("-" + 1));
-                else if (j > 4)
-                    tuile.setBorder(BorderFactory.createTitledBorder("-" + 3));
-                else
-                    tuile.setBorder(BorderFactory.createTitledBorder("-" + 2));
-                plancher.add(tuile);
-            }
-            //ajout du score dans la zone plancher du joueur
-            JLabel score = new JLabel("score");
-            score.setBorder(BorderFactory.createTitledBorder("score"));
-            plancher.add(score);
-            plancher.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
-            joueurs[i].add(plancher, c);// plancher
+            joueurs[i] = new JPanelJoueur(m, con, m.getJoueur(i).getNom());
         }
 
-        // Remplissage du centre
+        //Fin joueur
 
+        // Remplissage du centre
+        Tuiles_centre = new ArrayList<>();
         for (int i = 0; i < m.getCentre().getContenuCentre().size(); i++) {
             ImageIcon image = new ImageIcon("projet\\src\\img\\"+m.getCentre().getTuileCentre(i)+".png");
-            zoneCentre.add(new JLabel(image));
+            Tuiles_centre.add(new JLabel(image));
+        }
+
+        for (JLabel jLabel : Tuiles_centre) {
+            zoneCentre.add(jLabel);
         }
 
         //Remplissage des fabriques
+        Tuiles_fabrique = new JLabel[nbjoueurs * 2 + 1][4];
+        for (int i = 0; i < Tuiles_fabrique.length; i++) {
+            int j = 0;
+            for (Case c : m.getFabrique(i).getFabrique()) {
+                if(!c.isEmpty()) {
+                    ImageIcon image = new ImageIcon("projet\\src\\img\\"+c.getTuile().getColor()+".png");
+                    JLabel tuile = new JLabel(image);
+                    tuile.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
+                    Tuiles_fabrique[i][j] = tuile;
+                } else {
+                    JLabel tuile = new JLabel();
+                    tuile.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
+                    Tuiles_fabrique[i][j] = tuile;                
+                }
+                j++;
+            }
+        }
 
         for (int i=0; i<fabriques.length; i++) {
             fabriques[i] = new JPanel(new GridLayout(2,2));
-            for (Case c : m.getFabrique(i).getFabrique()) {
-                ImageIcon image = new ImageIcon("projet\\src\\img\\"+c.getTuile().getColor()+".png");
-                JLabel tuile = new JLabel(image);
-                tuile.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
-                if(!c.isEmpty()) fabriques[i].add(tuile);
+            for (JLabel jLabel : Tuiles_fabrique[i]) {
+                fabriques[i].add(jLabel);
             }
             
             fabriques[i].setBorder(BorderFactory.createTitledBorder("Fabrique N°"+i));
@@ -163,6 +123,33 @@ public class Vue extends JFrame {
 
         for (JPanel jPanel : fabriques) {
             zoneFabrique.add(jPanel);
+        }
+    }
+
+    public void MAJ_Fabrique() {
+        for (int i = 0; i < Tuiles_fabrique.length; i++) {
+            int j = 0;
+            for (Case c : model.getFabrique(i).getFabrique()) {
+                if(!c.isEmpty()) {
+                    ImageIcon image = new ImageIcon("projet\\src\\img\\"+c.getTuile().getColor()+".png");
+                    JLabel tuile = new JLabel(image);
+                    tuile.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
+                    Tuiles_fabrique[i][j] = tuile;
+                } else {
+                    JLabel tuile = new JLabel();
+                    tuile.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
+                    Tuiles_fabrique[i][j] = tuile;                
+                }
+                j++;
+            }
+        }
+    }
+
+    public void MAJ_Centre() {
+        Tuiles_centre.clear();
+        for (int i = 0; i < model.getCentre().getContenuCentre().size(); i++) {
+            ImageIcon image = new ImageIcon("projet\\src\\img\\"+model.getCentre().getTuileCentre(i)+".png");
+            Tuiles_centre.add(new JLabel(image));
         }
     }
 
