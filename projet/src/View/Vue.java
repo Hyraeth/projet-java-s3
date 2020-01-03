@@ -4,6 +4,7 @@ import javax.swing.*;
 
 import Model.Case;
 import Model.Jeu;
+import Model.Joueur;
 import Model.Tuile;
 
 import java.awt.*;
@@ -24,7 +25,7 @@ public class Vue extends JFrame {
     public JButton[][] Tuiles_fabrique;
 
     public JPanel zoneJoueurs;
-    public JPanel[] joueurs;
+    public JPanelJoueur[] joueurs;
 
     public Vue(Jeu m, Controleur con) {
 
@@ -39,13 +40,13 @@ public class Vue extends JFrame {
         zoneFabrique = new JPanel();
         zoneJoueurs = new JPanel();
 
-        joueurs = new JPanel[nbjoueurs];
+        joueurs = new JPanelJoueur[nbjoueurs];
         fabriques = new JPanel[nbjoueurs * 2 + 1];
 
         // Creation des zones pour chaque joueur
 
         for (int i = 0; i < nbjoueurs; i++) {
-            joueurs[i] = new JPanelJoueur(m, con, m.getJoueur(i).getNom());
+            joueurs[i] = new JPanelJoueur(m, con, m.getJoueur(i).getNom(), i);
         }
 
         //Fin joueur
@@ -56,7 +57,7 @@ public class Vue extends JFrame {
             Tuile color = m.getCentre().getTuileCentre(i);
             ImageIcon image = new ImageIcon("projet\\src\\img\\"+color+".png");
             JButton jl = new JButton(image);
-            jl.addActionListener((event) -> controleur.eleverTuileCentre(color));
+            jl.addActionListener((event) -> controleur.sauvegarder(color, m.getCentre()));
             Tuiles_centre.add(jl);
         }
 
@@ -66,25 +67,7 @@ public class Vue extends JFrame {
 
         //Remplissage des fabriques
         Tuiles_fabrique = new JButton[nbjoueurs * 2 + 1][4];
-        for (int i = 0; i < Tuiles_fabrique.length; i++) {
-            int j = 0;
-            for (Case c : m.getFabrique(i).getFabrique()) {
-                if(!c.isEmpty()) {
-                    Tuile color = c.getTuile();
-                    int numfab = i;
-                    ImageIcon image = new ImageIcon("projet\\src\\img\\"+c.getTuile().getColor()+".png");
-                    JButton tuile = new JButton(image);
-                    tuile.addActionListener((event) -> controleur.enleverTuileFabrique(color, numfab));
-                    tuile.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
-                    Tuiles_fabrique[i][j] = tuile;
-                } else {
-                    JButton tuile = new JButton();
-                    tuile.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
-                    Tuiles_fabrique[i][j] = tuile;                
-                }
-                j++;
-            }
-        }
+        MAJ_Fabrique();
 
         for (int i=0; i<fabriques.length; i++) {
             fabriques[i] = new JPanel(new GridLayout(2,2));
@@ -136,10 +119,15 @@ public class Vue extends JFrame {
             int j = 0;
             for (Case c : model.getFabrique(i).getFabrique()) {
                 if(!c.isEmpty()) {
+                    Tuile color = c.getTuile();
+                    int numfab = i;
                     ImageIcon image = new ImageIcon("projet\\src\\img\\"+c.getTuile().getColor()+".png");
-                    Tuiles_fabrique[i][j].setIcon(image);
+                    Tuiles_fabrique[i][j] = new JButton(image);
+                    Tuiles_fabrique[i][j].addActionListener((event) -> controleur.sauvegarder(color, model.getFabrique(numfab)));
+                    Tuiles_fabrique[i][j].setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
                 } else {
-                    Tuiles_fabrique[i][j].setIcon(null);      
+                    Tuiles_fabrique[i][j] = new JButton();
+                    Tuiles_fabrique[i][j].setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
                 }
                 j++;
             }
@@ -152,8 +140,20 @@ public class Vue extends JFrame {
             Tuile color = model.getCentre().getTuileCentre(i);
             ImageIcon image = new ImageIcon("projet\\src\\img\\"+color+".png");
             JButton jl = new JButton(image);
-            jl.addActionListener((event) -> controleur.eleverTuileCentre(color));
+            jl.addActionListener((event) -> controleur.sauvegarder(color, model.getCentre()));
             Tuiles_centre.add(jl);
+        }
+    }
+
+    public void MAJ() {
+        MAJ_Centre();
+        MAJ_Fabrique();
+    }
+
+    public void GROSSE_MAJ(Joueur j) {
+        MAJ();
+        for (JPanelJoueur jpj : joueurs) {
+            jpj.MAJ_Joueur(j);
         }
     }
 

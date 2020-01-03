@@ -13,6 +13,7 @@ import java.util.ArrayList;
 public class JPanelJoueur extends JPanel {
 
     public String nom;
+    public int id;
 
     public JPanel plancher;
     public JPanel lm_mur;
@@ -25,10 +26,11 @@ public class JPanelJoueur extends JPanel {
     public JButton[] Tuiles_Plancher;
     public JLabel score;
 
-    public JPanelJoueur(Jeu m, Controleur con, String nom) {
+    public JPanelJoueur(Jeu m, Controleur con, String nom, int id) {
         super(new GridBagLayout());
         super.setBorder(BorderFactory.createTitledBorder(nom));
         this.nom = nom;
+        this.id = id;
         GridBagConstraints c = new GridBagConstraints();
         c.fill = GridBagConstraints.BOTH;
         c.weightx = 1;
@@ -52,7 +54,9 @@ public class JPanelJoueur extends JPanel {
             lignes[j].setLayout(new GridLayout());
             Tuiles_Ligne[j] = new JButton[j+1];
             for (int k = 0; k <= j; k++) {
+                int ligne = j;
                 Tuiles_Ligne[j][k] = new JButton();
+                Tuiles_Ligne[j][k].addActionListener((event) -> con.ajouterLigne(ligne, id, m.getJoueur(id)));
                 Tuiles_Ligne[j][k].setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
                 lignes[j].add(Tuiles_Ligne[j][k]);
             }
@@ -136,6 +140,13 @@ public class JPanelJoueur extends JPanel {
 
     public void MAJ_Score(Joueur j) {
         score.setText(j.getScore()+"");
+    }
+
+    public void MAJ_Joueur(Joueur j) {
+        MAJ_LM(j);
+        MAJ_Mur(j);
+        MAJ_Plancher(j);
+        MAJ_Score(j);
     }
     
 }

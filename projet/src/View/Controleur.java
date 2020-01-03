@@ -1,25 +1,26 @@
 package View;
 
 import Model.Jeu;
+import Model.Joueur;
 import Model.Tuile;
+import Model.ZoneCommune;
 
 public class Controleur {
 
     public Jeu model;
     public Vue vue;
+    public LastPicked mem;
 
     public Controleur(Jeu j) {
         model = j;
     }
 
-    public void eleverTuileCentre(Tuile t) {
-        model.enleverTuileCentre(t);
-        vue.MAJ_Centre();
+    public void sauvegarder(Tuile t, ZoneCommune zc) {
+        mem = new LastPicked(t, zc);
     }
 
-    public void enleverTuileFabrique(Tuile t, int i) {
-        model.enleverTuileFabrique(t, i);
-        vue.MAJ_Fabrique();
-        vue.MAJ_Centre();
+    public void ajouterLigne(int ligne, int id, Joueur j) {
+        model.getJoueur(id).ajouterTuile(mem.origine, mem.tuile, ligne);
+        vue.GROSSE_MAJ(j);
     }
 }

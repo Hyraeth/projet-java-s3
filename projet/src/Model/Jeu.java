@@ -47,15 +47,6 @@ public class Jeu {
         return joueurs[i];
     }
 
-    public void enleverTuileCentre(Tuile t) {
-        centre.remove(t);
-    }
-
-    public void enleverTuileFabrique(Tuile t, int i) {
-        fabriques[i].remove(t);
-        fabriques[i].mettreCentre(centre);
-    }
-
     public boolean partieFinie() {
         for (Joueur joueur : joueurs) {
             if(joueur.getPlateau().getMur().ligneRemplie()) return true;
