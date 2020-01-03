@@ -49,7 +49,8 @@ public class Joueur {
     }
 
 	public void updateWall() {
-        score = plateau.updateWall();
+        int c = plateau.updateWall();
+        score = c;
 	}
 
 	public void moveToDefausse() {

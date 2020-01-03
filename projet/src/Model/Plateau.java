@@ -25,10 +25,12 @@ public class Plateau {
         colors.add("rouge");
         colors.add("noir");
         colors.add("blanc");
+        if(ligne_motif.isRemplie(ligne)) return false;
         if(!colors.contains(t.getColor())) return false;
+        if(mur.contains(ligne, t)) return false;
         if(!ligne_motif.isEmpty(ligne)) {
             Case[][] lm = ligne_motif.getLigne();
-            if(!lm[ligne][0].getTuile().equals(t) || mur.contains(ligne, t)) return false;
+            if(!lm[ligne][0].getTuile().equals(t)) return false;
             return true;
         }
         return true;
@@ -49,7 +51,8 @@ public class Plateau {
         int sc = 0;
         boolean[] b = ligne_motif.lignesRemplies();
         for (int i = 0; i < b.length; i++) {
-            if(b[i]) {
+            System.out.println("ligne remple?");
+            if(ligne_motif.isRemplie(i)) {
                 System.out.println(i+" cette ligne est remplie");
                 sc += mur.ajouter(ligne_motif.getColorLine(i), i);
             }

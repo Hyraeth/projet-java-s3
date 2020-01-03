@@ -37,8 +37,10 @@ public class LigneMotif {
     public void add(int ligne, int nombre, Tuile t) {
         int c = 0;
         for (int i = 0; i < ligne_motif[ligne].length; i++) {
-            if(ligne_motif[ligne][i].isEmpty()) ligne_motif[ligne][i].addTuile(t);
-            c++;
+            if(ligne_motif[ligne][i].isEmpty()) {
+                ligne_motif[ligne][i].addTuile(t);
+                c++;
+            }
             if(c==nombre) break;
         }
     }
