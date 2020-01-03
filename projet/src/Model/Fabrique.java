@@ -50,7 +50,7 @@ public class Fabrique implements ZoneCommune {
     public int count(Tuile t) {
         int c = 0;
         for (Case case1 : fabrique) {
-            if(case1.getTuile().equals(t)) c++;
+            if(!case1.isEmpty() && case1.getTuile().equals(t)) c++;
         }
         return c;
     }
