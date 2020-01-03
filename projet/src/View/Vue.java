@@ -53,8 +53,10 @@ public class Vue extends JFrame {
         // Remplissage du centre
         Tuiles_centre = new ArrayList<>();
         for (int i = 0; i < m.getCentre().getContenuCentre().size(); i++) {
-            ImageIcon image = new ImageIcon("projet\\src\\img\\"+m.getCentre().getTuileCentre(i)+".png");
+            Tuile color = m.getCentre().getTuileCentre(i);
+            ImageIcon image = new ImageIcon("projet\\src\\img\\"+color+".png");
             JButton jl = new JButton(image);
+            jl.addActionListener((event) -> controleur.eleverTuileCentre(color));
             Tuiles_centre.add(jl);
         }
 
@@ -68,8 +70,11 @@ public class Vue extends JFrame {
             int j = 0;
             for (Case c : m.getFabrique(i).getFabrique()) {
                 if(!c.isEmpty()) {
+                    Tuile color = c.getTuile();
+                    int numfab = i;
                     ImageIcon image = new ImageIcon("projet\\src\\img\\"+c.getTuile().getColor()+".png");
                     JButton tuile = new JButton(image);
+                    tuile.addActionListener((event) -> controleur.enleverTuileFabrique(color, numfab));
                     tuile.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
                     Tuiles_fabrique[i][j] = tuile;
                 } else {
@@ -132,13 +137,9 @@ public class Vue extends JFrame {
             for (Case c : model.getFabrique(i).getFabrique()) {
                 if(!c.isEmpty()) {
                     ImageIcon image = new ImageIcon("projet\\src\\img\\"+c.getTuile().getColor()+".png");
-                    JButton tuile = new JButton(image);
-                    tuile.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
-                    Tuiles_fabrique[i][j] = tuile;
+                    Tuiles_fabrique[i][j].setIcon(image);
                 } else {
-                    JButton tuile = new JButton();
-                    tuile.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
-                    Tuiles_fabrique[i][j] = tuile;                
+                    Tuiles_fabrique[i][j].setIcon(null);                
                 }
                 j++;
             }
@@ -148,8 +149,11 @@ public class Vue extends JFrame {
     public void MAJ_Centre() {
         Tuiles_centre.clear();
         for (int i = 0; i < model.getCentre().getContenuCentre().size(); i++) {
-            ImageIcon image = new ImageIcon("projet\\src\\img\\"+model.getCentre().getTuileCentre(i)+".png");
-            Tuiles_centre.add(new JButton(image));
+            Tuile color = model.getCentre().getTuileCentre(i);
+            ImageIcon image = new ImageIcon("projet\\src\\img\\"+color+".png");
+            JButton jl = new JButton(image);
+            jl.addActionListener((event) -> controleur.eleverTuileCentre(color));
+            Tuiles_centre.add(jl);
         }
     }
 
@@ -160,7 +164,9 @@ public class Vue extends JFrame {
         nom.add("pupu");
         nom.add("pepe");
         Jeu j = new Jeu(nom, 0);
-        Vue v = new Vue(j, new Controleur());
+        Controleur c = new Controleur(j);
+        Vue v = new Vue(j, c);
+        c.vue=v;
     }
 
 }
