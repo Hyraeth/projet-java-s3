@@ -20,9 +20,9 @@ public class JPanelJoueur extends JPanel {
     public JPanel[] lignes;
     public JPanel mur;
 
-    public JLabel[][] Tuiles_Ligne;
+    public JButton[][] Tuiles_Ligne;
     public JLabel[][] Tuiles_Mur;
-    public JLabel[] Tuiles_Plancher;
+    public JButton[] Tuiles_Plancher;
     public JLabel score;
 
     public JPanelJoueur(Jeu m, Controleur con, String nom) {
@@ -46,13 +46,13 @@ public class JPanelJoueur extends JPanel {
 
         //init ligne motif
         lignes = new JPanel[5];
-        Tuiles_Ligne = new JLabel[5][];
+        Tuiles_Ligne = new JButton[5][];
         for (int j = 0; j < 5; j++) {
             lignes[j] = new JPanel();
             lignes[j].setLayout(new GridLayout());
-            Tuiles_Ligne[j] = new JLabel[j+1];
+            Tuiles_Ligne[j] = new JButton[j+1];
             for (int k = 0; k <= j; k++) {
-                Tuiles_Ligne[j][k] = new JLabel();
+                Tuiles_Ligne[j][k] = new JButton();
                 Tuiles_Ligne[j][k].setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
                 lignes[j].add(Tuiles_Ligne[j][k]);
             }
@@ -90,9 +90,9 @@ public class JPanelJoueur extends JPanel {
         c.weighty = 0.2;
         c.gridy = 1;
         plancher = new JPanel(new GridLayout(1, 8));
-        Tuiles_Plancher = new JLabel[7];
+        Tuiles_Plancher = new JButton[7];
         for (int j = 0; j < 7; j++) {
-            Tuiles_Plancher[j] = new JLabel();
+            Tuiles_Plancher[j] = new JButton();
             if (j < 2)
                 Tuiles_Plancher[j].setBorder(BorderFactory.createTitledBorder("-" + 1));
             else if (j > 4)

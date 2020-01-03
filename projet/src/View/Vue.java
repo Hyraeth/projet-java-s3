@@ -7,8 +7,6 @@ import Model.Jeu;
 import Model.Tuile;
 
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
 public class Vue extends JFrame {
@@ -19,11 +17,11 @@ public class Vue extends JFrame {
     public JFrame j;
 
     public JPanel zoneCentre;
-    public ArrayList<JLabel> Tuiles_centre;
+    public ArrayList<JButton> Tuiles_centre;
 
     public JPanel zoneFabrique;
     public JPanel[] fabriques;
-    public JLabel[][] Tuiles_fabrique;
+    public JButton[][] Tuiles_fabrique;
 
     public JPanel zoneJoueurs;
     public JPanel[] joueurs;
@@ -56,26 +54,26 @@ public class Vue extends JFrame {
         Tuiles_centre = new ArrayList<>();
         for (int i = 0; i < m.getCentre().getContenuCentre().size(); i++) {
             ImageIcon image = new ImageIcon("projet\\src\\img\\"+m.getCentre().getTuileCentre(i)+".png");
-            JLabel jl = new JLabel(image);
+            JButton jl = new JButton(image);
             Tuiles_centre.add(jl);
         }
 
-        for (JLabel jLabel : Tuiles_centre) {
-            zoneCentre.add(jLabel);
+        for (JButton JButton : Tuiles_centre) {
+            zoneCentre.add(JButton);
         }
 
         //Remplissage des fabriques
-        Tuiles_fabrique = new JLabel[nbjoueurs * 2 + 1][4];
+        Tuiles_fabrique = new JButton[nbjoueurs * 2 + 1][4];
         for (int i = 0; i < Tuiles_fabrique.length; i++) {
             int j = 0;
             for (Case c : m.getFabrique(i).getFabrique()) {
                 if(!c.isEmpty()) {
                     ImageIcon image = new ImageIcon("projet\\src\\img\\"+c.getTuile().getColor()+".png");
-                    JLabel tuile = new JLabel(image);
+                    JButton tuile = new JButton(image);
                     tuile.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
                     Tuiles_fabrique[i][j] = tuile;
                 } else {
-                    JLabel tuile = new JLabel();
+                    JButton tuile = new JButton();
                     tuile.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
                     Tuiles_fabrique[i][j] = tuile;                
                 }
@@ -85,8 +83,8 @@ public class Vue extends JFrame {
 
         for (int i=0; i<fabriques.length; i++) {
             fabriques[i] = new JPanel(new GridLayout(2,2));
-            for (JLabel jLabel : Tuiles_fabrique[i]) {
-                fabriques[i].add(jLabel);
+            for (JButton JButton : Tuiles_fabrique[i]) {
+                fabriques[i].add(JButton);
             }
             
             fabriques[i].setBorder(BorderFactory.createTitledBorder("Fabrique N°"+i));
@@ -134,11 +132,11 @@ public class Vue extends JFrame {
             for (Case c : model.getFabrique(i).getFabrique()) {
                 if(!c.isEmpty()) {
                     ImageIcon image = new ImageIcon("projet\\src\\img\\"+c.getTuile().getColor()+".png");
-                    JLabel tuile = new JLabel(image);
+                    JButton tuile = new JButton(image);
                     tuile.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
                     Tuiles_fabrique[i][j] = tuile;
                 } else {
-                    JLabel tuile = new JLabel();
+                    JButton tuile = new JButton();
                     tuile.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
                     Tuiles_fabrique[i][j] = tuile;                
                 }
@@ -151,7 +149,7 @@ public class Vue extends JFrame {
         Tuiles_centre.clear();
         for (int i = 0; i < model.getCentre().getContenuCentre().size(); i++) {
             ImageIcon image = new ImageIcon("projet\\src\\img\\"+model.getCentre().getTuileCentre(i)+".png");
-            Tuiles_centre.add(new JLabel(image));
+            Tuiles_centre.add(new JButton(image));
         }
     }
 
