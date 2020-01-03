@@ -59,23 +59,31 @@ public class Vue extends JFrame {
             lm.setBorder(BorderFactory.createTitledBorder("ligne motif"));
             JPanel mur = new JPanel(new GridLayout(5, 5));
             mur.setBorder(BorderFactory.createTitledBorder("mur"));
+
+            //Remplissage du mur de fausse icone
             for (int j = 0; j < 25; j++) {
+                ImageIcon icon;
                 JLabel jl;
                 if (j == 0 || j == 6 || j == 12 || j == 18 || j == 24)
-                    jl = new JLabel("bleu");
+                    icon = new ImageIcon("projet\\src\\img\\bleufake.png");
                 else if (j == 1 || j == 7 || j == 13 || j == 19 || j == 20)
-                    jl = new JLabel("jaune");
+                    icon = new ImageIcon("projet\\src\\img\\jaunefake.png");
                 else if (j == 2 || j == 8 || j == 14 || j == 15 || j == 21)
-                    jl = new JLabel("rouge");
+                    icon = new ImageIcon("projet\\src\\img\\rougefake.png");
                 else if (j == 3 || j == 9 || j == 10 || j == 16 || j == 22)
-                    jl = new JLabel("noir");
+                    icon = new ImageIcon("projet\\src\\img\\noirfake.png");
                 else
-                    jl = new JLabel("blanc");
+                    icon = new ImageIcon("projet\\src\\img\\blancfake.png");
+
+                jl = new JLabel(icon);
                 jl.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
                 mur.add(jl);
             }
+
+            //Ajout au lm_mur du lm et mur
             lm_mur.add(lm);
             lm_mur.add(mur);
+            //Ajout dans la zone joueur du lm et mur
             joueurs[i].add(lm_mur, c);
 
 
@@ -93,6 +101,7 @@ public class Vue extends JFrame {
                     tuile.setBorder(BorderFactory.createTitledBorder("-" + 2));
                 plancher.add(tuile);
             }
+            //ajout du score dans la zone plancher du joueur
             JLabel score = new JLabel("score");
             score.setBorder(BorderFactory.createTitledBorder("score"));
             plancher.add(score);
@@ -162,6 +171,7 @@ public class Vue extends JFrame {
         nom.add("pipi");
         nom.add("popo");
         nom.add("pupu");
+        nom.add("pepe");
         Jeu j = new Jeu(nom, 0);
         Vue v = new Vue(j, new Controleur());
     }
