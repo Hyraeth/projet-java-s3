@@ -47,6 +47,14 @@ public class Jeu {
         return joueurs[i];
     }
 
+    public String getGagnant() {
+        Joueur g = joueurs[0];
+        for (Joueur j : joueurs) {
+            if(j.getScore() > g.getScore()) g = j;
+        }
+        return g.getNom();
+    }
+
     public void foutre_au_centre() {
         for (Fabrique fabrique : fabriques) {
             if(!fabrique.Remplie()) {

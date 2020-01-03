@@ -25,6 +25,7 @@ public class Controleur {
             model.getJoueur(id).ajouterTuile(mem.origine, mem.tuile, ligne);
             model.foutre_au_centre();
         }
+        //bug mur le plateau de chaque joueur n'a pas été mise a jour
         if(model.mancheFinie()) {
             model.nouvelleManche();
             System.out.println(model.getJoueur(0).getPlateau());
@@ -39,10 +40,14 @@ public class Controleur {
             model.getJoueur(id).ajouterTuilePlancher(mem.origine, mem.tuile);
             model.foutre_au_centre();
         }
+        //bug mur le plateau de chaque joueur n'a pas été mise a jour
         if(model.mancheFinie()) {
             model.nouvelleManche();
             System.out.println(model.getJoueur(0).getPlateau());
             vue.GROSSE_MAJ();
+        }
+        if(model.partieFinie()) {
+            System.out.println(model.getGagnant());
         }
         vue.GROSSE_MAJ();
         mem.clear();
