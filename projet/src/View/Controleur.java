@@ -22,11 +22,13 @@ public class Controleur {
 
     public void ajouterLigne(int ligne, int id) {
         model.getJoueur(id).ajouterTuile(mem.origine, mem.tuile, ligne);
+        model.foutre_au_centre();
         vue.GROSSE_MAJ();
     }
 
     public void ajouterPlancher(int id) {
         model.getJoueur(id).ajouterTuilePlancher(mem.origine, mem.tuile);
+        model.foutre_au_centre();
         vue.GROSSE_MAJ();
         mem = null;
     }

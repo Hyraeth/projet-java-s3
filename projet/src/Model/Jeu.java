@@ -47,6 +47,12 @@ public class Jeu {
         return joueurs[i];
     }
 
+    public void foutre_au_centre() {
+        for (Fabrique fabrique : fabriques) {
+            if(fabrique.Remplie()) fabrique.mettreCentre(centre); 
+        }
+    }
+
     public boolean partieFinie() {
         for (Joueur joueur : joueurs) {
             if(joueur.getPlateau().getMur().ligneRemplie()) return true;
