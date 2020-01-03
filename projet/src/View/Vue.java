@@ -67,6 +67,7 @@ public class Vue extends JFrame {
 
         //Remplissage des fabriques
         Tuiles_fabrique = new JButton[nbjoueurs * 2 + 1][4];
+        setupFabrique();
         MAJ_Fabrique();
 
         for (int i=0; i<fabriques.length; i++) {
@@ -114,6 +115,15 @@ public class Vue extends JFrame {
         }
     }
 
+    public void setupFabrique() {
+        for (int i = 0; i < Tuiles_fabrique.length; i++) {
+            for (int j = 0; j < 4; j++) {
+                Tuiles_fabrique[i][j] = new JButton();
+                Tuiles_fabrique[i][j].setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
+            }
+        }
+    }
+
     public void MAJ_Fabrique() {
         for (int i = 0; i < Tuiles_fabrique.length; i++) {
             int j = 0;
@@ -122,15 +132,12 @@ public class Vue extends JFrame {
                     Tuile color = c.getTuile();
                     int numfab = i;
                     ImageIcon image = new ImageIcon("projet\\src\\img\\"+c.getTuile().getColor()+".png");
-                    Tuiles_fabrique[i][j] = new JButton();
                     Tuiles_fabrique[i][j].setIcon(image);
                     Tuiles_fabrique[i][j].addActionListener((event) -> controleur.sauvegarder(color, model.getFabrique(numfab)));
-                    Tuiles_fabrique[i][j].setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
                 } else {
                     Tuiles_fabrique[i][j].setIcon(null);
                     Tuiles_fabrique[i][j].setEnabled(false);
                     Tuiles_fabrique[i][j].setBackground(Color.gray);
-                    Tuiles_fabrique[i][j].setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
                 }
                 j++;
             }

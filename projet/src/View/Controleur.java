@@ -21,21 +21,21 @@ public class Controleur {
     }
 
     public void ajouterLigne(int ligne, int id) {
+        System.out.println(mem.tuile);
         if(!mem.isEmpty()) {
             model.getJoueur(id).ajouterTuile(mem.origine, mem.tuile, ligne);
-            mem.clear();
             model.foutre_au_centre();
-            vue.GROSSE_MAJ();
         }
+        vue.GROSSE_MAJ();
+        mem.clear();
     }
 
     public void ajouterPlancher(int id) {
-        if(mem != null) {
+        if(mem.isEmpty()) {
             model.getJoueur(id).ajouterTuilePlancher(mem.origine, mem.tuile);
-            mem = null;
             model.foutre_au_centre();
-            vue.GROSSE_MAJ();
         }
-        
+        vue.GROSSE_MAJ();
+        mem.clear();
     }
 }
