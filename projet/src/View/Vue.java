@@ -7,6 +7,8 @@ import Model.Jeu;
 import Model.Tuile;
 
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
 public class Vue extends JFrame {
@@ -54,7 +56,8 @@ public class Vue extends JFrame {
         Tuiles_centre = new ArrayList<>();
         for (int i = 0; i < m.getCentre().getContenuCentre().size(); i++) {
             ImageIcon image = new ImageIcon("projet\\src\\img\\"+m.getCentre().getTuileCentre(i)+".png");
-            Tuiles_centre.add(new JLabel(image));
+            JLabel jl = new JLabel(image);
+            Tuiles_centre.add(jl);
         }
 
         for (JLabel jLabel : Tuiles_centre) {

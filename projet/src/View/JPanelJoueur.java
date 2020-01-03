@@ -12,6 +12,8 @@ import java.util.ArrayList;
 
 public class JPanelJoueur extends JPanel {
 
+    public String nom;
+
     public JPanel plancher;
     public JPanel lm_mur;
     public JPanel lm;
@@ -26,6 +28,7 @@ public class JPanelJoueur extends JPanel {
     public JPanelJoueur(Jeu m, Controleur con, String nom) {
         super(new GridBagLayout());
         super.setBorder(BorderFactory.createTitledBorder(nom));
+        this.nom = nom;
         GridBagConstraints c = new GridBagConstraints();
         c.fill = GridBagConstraints.BOTH;
         c.weightx = 1;
