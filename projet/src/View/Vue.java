@@ -139,7 +139,7 @@ public class Vue extends JFrame {
                     ImageIcon image = new ImageIcon("projet\\src\\img\\"+c.getTuile().getColor()+".png");
                     Tuiles_fabrique[i][j].setIcon(image);
                 } else {
-                    Tuiles_fabrique[i][j].setIcon(null);                
+                    Tuiles_fabrique[i][j].setIcon(null);      
                 }
                 j++;
             }
@@ -155,18 +155,6 @@ public class Vue extends JFrame {
             jl.addActionListener((event) -> controleur.eleverTuileCentre(color));
             Tuiles_centre.add(jl);
         }
-    }
-
-    public static void main(String[] args) {
-        ArrayList<String> nom = new ArrayList<>();
-        nom.add("pipi");
-        nom.add("popo");
-        nom.add("pupu");
-        nom.add("pepe");
-        Jeu j = new Jeu(nom, 0);
-        Controleur c = new Controleur(j);
-        Vue v = new Vue(j, c);
-        c.vue=v;
     }
 
 }

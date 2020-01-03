@@ -21,8 +21,10 @@ public class Fabrique implements ZoneCommune {
     }
 
     public void remove(Tuile t) {
-        for (Case case1 : fabrique) {
-            if(case1.getTuile().equals(t)) case1.clear();
+        if(t != null) {
+            for (Case case1 : fabrique) {
+                if(case1.getTuile().equals(t)) case1.clear();
+            }
         }
     }
 
