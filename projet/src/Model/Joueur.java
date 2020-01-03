@@ -20,7 +20,7 @@ public class Joueur {
             plateau.getPlancher().add(1, new PremierJoueur());
             zc.remove(new PremierJoueur());
         }
-        if(plateau.addTuile(ligne, n, t)) {
+        if(t != null && plateau.addTuile(ligne, n, t)) {
             zc.remove(t);
             return true;
         }
