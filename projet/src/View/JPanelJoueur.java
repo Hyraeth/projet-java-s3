@@ -56,7 +56,7 @@ public class JPanelJoueur extends JPanel {
             for (int k = 0; k <= j; k++) {
                 int ligne = j;
                 Tuiles_Ligne[j][k] = new JButton();
-                Tuiles_Ligne[j][k].addActionListener((event) -> con.ajouterLigne(ligne, id, m.getJoueur(id)));
+                Tuiles_Ligne[j][k].addActionListener((event) -> con.ajouterLigne(ligne, id));
                 Tuiles_Ligne[j][k].setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
                 lignes[j].add(Tuiles_Ligne[j][k]);
             }
@@ -97,6 +97,7 @@ public class JPanelJoueur extends JPanel {
         Tuiles_Plancher = new JButton[7];
         for (int j = 0; j < 7; j++) {
             Tuiles_Plancher[j] = new JButton();
+            Tuiles_Plancher[j].addActionListener((event) -> con.ajouterPlancher(id));
             if (j < 2)
                 Tuiles_Plancher[j].setBorder(BorderFactory.createTitledBorder("-" + 1));
             else if (j > 4)

@@ -19,8 +19,13 @@ public class Controleur {
         mem = new LastPicked(t, zc);
     }
 
-    public void ajouterLigne(int ligne, int id, Joueur j) {
+    public void ajouterLigne(int ligne, int id) {
         model.getJoueur(id).ajouterTuile(mem.origine, mem.tuile, ligne);
-        vue.GROSSE_MAJ(j);
+        vue.GROSSE_MAJ(model.getJoueur(id));
+    }
+
+    public void ajouterPlancher(int id) {
+        model.getJoueur(id).ajouterTuilePlancher(mem.origine, mem.tuile);
+        vue.GROSSE_MAJ(model.getJoueur(id));
     }
 }
