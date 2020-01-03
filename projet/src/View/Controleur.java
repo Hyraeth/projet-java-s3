@@ -37,6 +37,9 @@ public class Controleur {
             model.getJoueur(id).ajouterTuilePlancher(mem.origine, mem.tuile);
             model.foutre_au_centre();
         }
+        if(model.mancheFinie()) {
+            model.nouvelleManche();
+        }
         vue.GROSSE_MAJ();
         mem.clear();
     }

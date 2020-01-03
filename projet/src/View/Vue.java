@@ -135,6 +135,8 @@ public class Vue extends JFrame {
                     ImageIcon image = new ImageIcon("projet\\src\\img\\"+c.getTuile().getColor()+".png");
                     Tuiles_fabrique[i][j].setIcon(image);
                     Tuiles_fabrique[i][j].addActionListener((event) -> controleur.sauvegarder(color, model.getFabrique(numfab)));
+                    Tuiles_fabrique[i][j].setEnabled(true);
+                    Tuiles_fabrique[i][j].setBackground(null);
                 } else {
                     Tuiles_fabrique[i][j].setIcon(null);
                     Tuiles_fabrique[i][j].setEnabled(false);
