@@ -18,7 +18,7 @@ public class JPanelJoueur extends JPanel {
     public JPanel[] lignes;
     public JPanel mur;
 
-    public JLabel[][] Tuiles_LM;
+    public JLabel[][] Tuiles_Ligne;
     public JLabel[][] Tuiles_Mur;
     public JLabel[] Tuiles_Plancher;
     public JLabel score;
@@ -42,16 +42,18 @@ public class JPanelJoueur extends JPanel {
         mur.setBorder(BorderFactory.createTitledBorder("Mur"));
 
         //init ligne motif
-
+        lignes = new JPanel[5];
+        Tuiles_Ligne = new JLabel[5][];
         for (int j = 0; j < 5; j++) {
-            JPanel ligne = new JPanel();
-            ligne.setLayout(new GridLayout());
+            lignes[j] = new JPanel();
+            lignes[j].setLayout(new GridLayout());
+            Tuiles_Ligne[j] = new JLabel[j+1];
             for (int k = 0; k <= j; k++) {
-                JLabel emplacement_tuile = new JLabel();
-                emplacement_tuile.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
-                ligne.add(emplacement_tuile);
+                Tuiles_Ligne[j][k] = new JLabel();
+                Tuiles_Ligne[j][k].setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
+                lignes[j].add(Tuiles_Ligne[j][k]);
             }
-            lm.add(ligne);
+            lm.add(lignes[j]);
         }
 
         //Remplissage du mur de fausse icone
@@ -113,8 +115,8 @@ public class JPanelJoueur extends JPanel {
         }
     }
 
-    public void MAJ_LM() {
-
+    public void MAJ_LM(Joueur j) {
+        
     }
 
     public void MAJ_Plancher(Joueur j) {
