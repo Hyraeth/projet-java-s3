@@ -25,9 +25,10 @@ public class Controleur {
             model.getJoueur(id).ajouterTuile(mem.origine, mem.tuile, ligne);
             model.foutre_au_centre();
         }
+        if(model.mancheFinie()) {
+            model.nouvelleManche();
+        }
         vue.GROSSE_MAJ();
-        System.out.println(model.getCentre());
-
         mem.clear();
     }
 
