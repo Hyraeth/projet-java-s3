@@ -56,7 +56,8 @@ public class Vue extends JFrame {
         for (int i = 0; i < m.getCentre().getContenuCentre().size(); i++) {
             Tuile color = m.getCentre().getTuileCentre(i);
             ImageIcon image = new ImageIcon("projet\\src\\img\\"+color+".png");
-            JButton jl = new JButton(image);
+            JButton jl = new JButton();
+            jl.setIcon(image);
             jl.addActionListener((event) -> controleur.sauvegarder(color, m.getCentre()));
             Tuiles_centre.add(jl);
         }
@@ -145,6 +146,9 @@ public class Vue extends JFrame {
     }
 
     public void MAJ_Centre() {
+        for (Component c : zoneCentre.getComponents()) {
+            zoneCentre.remove(c);
+        }
         Tuiles_centre.clear();
         for (int i = 0; i < model.getCentre().getContenuCentre().size(); i++) {
             Tuile color = model.getCentre().getTuileCentre(i);
@@ -153,7 +157,10 @@ public class Vue extends JFrame {
             jl.setIcon(image);
             jl.addActionListener((event) -> controleur.sauvegarder(color, model.getCentre()));
             Tuiles_centre.add(jl);
+            zoneCentre.add(jl);
         }
+        zoneCentre.revalidate();
+        zoneCentre.repaint();
     }
 
     public void MAJ() {

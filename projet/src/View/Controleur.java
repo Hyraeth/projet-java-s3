@@ -21,12 +21,13 @@ public class Controleur {
     }
 
     public void ajouterLigne(int ligne, int id) {
-        System.out.println(mem.tuile);
         if(!mem.isEmpty()) {
             model.getJoueur(id).ajouterTuile(mem.origine, mem.tuile, ligne);
             model.foutre_au_centre();
         }
         vue.GROSSE_MAJ();
+        System.out.println(model.getCentre());
+
         mem.clear();
     }
 
