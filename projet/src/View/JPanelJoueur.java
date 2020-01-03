@@ -110,19 +110,24 @@ public class JPanelJoueur extends JPanel {
         Case[][] c = j.getPlateau().getMur().getCasesMur();
         for (int i = 0; i < c.length; i++) {
             for (int k = 0; k < c[i].length; k++) {
-                if(!c[i][k].isEmpty()) Tuiles_Mur[i][k].setIcon(new ImageIcon("projet\\src\\img\\"+c[i][k].getTuile().getColor()+"ake.png"));
+                if(!c[i][k].isEmpty()) Tuiles_Mur[i][k].setIcon(new ImageIcon("projet\\src\\img\\"+c[i][k].getTuile().getColor()+".png"));
             }
         }
     }
 
     public void MAJ_LM(Joueur j) {
-        
+        Case[][] c = j.getPlateau().getLigneMotif().getLigne();
+        for (int i = 0; i < c.length; i++) {
+            for (int k = 0; k < c[i].length; k++) {
+                if(!c[i][k].isEmpty()) Tuiles_Ligne[i][k].setIcon(new ImageIcon("projet\\src\\img\\"+c[i][k].getTuile().getColor()+".png"));
+            }
+        }
     }
 
     public void MAJ_Plancher(Joueur j) {
         for (int i = 0; i < j.getPlateau().getPlancher().getPlancher().size(); i++) {
             ArrayList<Tuile> a = j.getPlateau().getPlancher().getPlancher();
-            if(i<7) Tuiles_Plancher[i].setIcon(new ImageIcon("projet\\src\\img\\"+a.get(i).getColor()+"fake.png"));
+            if(i<7) Tuiles_Plancher[i].setIcon(new ImageIcon("projet\\src\\img\\"+a.get(i).getColor()+".png"));
         }
     }
 
