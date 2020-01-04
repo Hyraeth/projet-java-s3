@@ -4,7 +4,6 @@ import javax.swing.*;
 
 import Model.Case;
 import Model.Jeu;
-import Model.Joueur;
 import Model.Tuile;
 
 import java.awt.*;
@@ -120,8 +119,8 @@ public class JPanelJoueur extends JPanel {
 
     public void MAJ_Mur() {
         Case[][] c = model.getJoueur(id).getPlateau().getMur().getCasesMur();
-        for (int i = 0; i < c.length; i++) {
-            for (int k = 0; k < c[i].length; k++) {
+        for (int i = 0; i < 5; i++) {
+            for (int k = 0; k < 5; k++) {
                 if(!c[i][k].isEmpty()) {
                     Tuiles_Mur[i][k].setIcon(new ImageIcon("projet\\src\\img\\"+c[i][k].getTuile()+".png"));
                 }
