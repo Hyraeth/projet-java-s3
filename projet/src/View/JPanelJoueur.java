@@ -123,7 +123,8 @@ public class JPanelJoueur extends JPanel {
             for (int k = 0; k < 5; k++) {
                 if(!c[i][k].isEmpty()) {
                     Tuiles_Mur[i][k].setIcon(new ImageIcon("projet\\src\\img\\"+c[i][k].getTuile()+".png"));
-                }
+                }                
+                else Tuiles_Ligne[i][k].setIcon(null);
             }
         }
     }
@@ -133,6 +134,7 @@ public class JPanelJoueur extends JPanel {
         for (int i = 0; i < c.length; i++) {
             for (int k = 0; k < c[i].length; k++) {
                 if(!c[i][k].isEmpty()) Tuiles_Ligne[i][k].setIcon(new ImageIcon("projet\\src\\img\\"+c[i][k].getTuile().getColor()+".png"));
+                else Tuiles_Ligne[i][k].setIcon(null);
             }
         }
     }

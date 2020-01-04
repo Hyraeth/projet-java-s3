@@ -28,9 +28,8 @@ public class Controleur {
         //bug mur le plateau de chaque joueur n'a pas été mise a jour
         if(model.mancheFinie()) {
             model.nouvelleManche();
-            System.out.println(model.getJoueur(0));
-            vue.GROSSE_MAJ();
         }
+        System.out.println(model.getJoueur(0));
         vue.GROSSE_MAJ();
         mem.clear();
     }
@@ -44,7 +43,6 @@ public class Controleur {
         if(model.mancheFinie()) {
             model.nouvelleManche();
             System.out.println(model.getJoueur(0));
-            vue.GROSSE_MAJ();
         }
         if(model.partieFinie()) {
             System.out.println(model.getGagnant());
