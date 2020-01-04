@@ -150,6 +150,7 @@ public class JPanelJoueur extends JPanel {
     }
 
     public void MAJ_Joueur() {
+        MAJ_Mur();
         MAJ_LM();
         MAJ_Plancher();
         MAJ_Score();
